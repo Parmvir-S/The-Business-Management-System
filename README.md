@@ -24,6 +24,13 @@ In the modern era with the advent of the internet and technology, individuals of
 ## Why is this project of interest to you?
 This project is of interest to me because I am surrounded by young entrepreneurs who are trying to open up their own businesses. In particular my younger sister has recently opened up her own business and could use an application that allows her to print receipts for her customers and track basic customer information in one compact application. This will allow her to keep track of which items/services are the most popular and adjust her marketing accordingly which will ultimately yield more new customers and higher return rates.
 
+## User Stories
+- As a user, I want to be able to add an item/service to the catalogue list
+- As a user, I want to be able to view all the items/services in the catalogue list
+- As a user, I want to be able to select ("add to cart") specific items/services in the catalogue list
+- As a user, I want to be able to update existing items/services in the catalogue list
+- As a user, I want to be able to delete items/services in the catalogue list
+- As a user, I want to be able to print a receipt of the customers purchases
+- As a user, I want to be able to view what the total sales to date are, which item/service is the most popular and view how many customers have been serviced to date.
 
-An example of text with **bold** and *italic* fonts.  Note that the IntelliJ markdown previewer doesn't seem to render 
-the bold and italic fonts correctly but they will appear correctly on GitHub.
+
