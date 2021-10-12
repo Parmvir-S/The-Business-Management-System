@@ -1,11 +1,29 @@
-# My Personal Project
+# The Business Management System
 
-## A subtitle
+## What does the application do?
 
-A *bulleted* list:
-- item 1
-- item 2
-- item 3
+The **Business Management System** will allow a business to populate the application with a suite of items/services it has to offer alongside with their costs. The business will be able to:
+- **Create** new items/services for its customers
+- Will be able to **view** the current items/services available
+- **Update** the items/services offered (name, cost, description, etc.)
+- **Delete** items/services currently in the system
+
+After the customer has chosen the type and quantity of item(s)/service(s), the business management application user can then enter those selections along with the customers data into the system. The entered data will be of the form:
+- Customer ID
+- Customer Name
+- Customer Email
+- Customer Phone Number
+- Items/Services Purchased (Which Items, Total Cost, etc.)
+
+If any of the entered information is incorrect, the user will have the option to go back and correct the entry. Then, the business management application user will be given the option to print a receipt for the customer (or to keep a copy for the business itself).
+The application will also keep track of all time customer purchase records. The business can view how much money they have made to date, which items/services are purchased the most and how many customers they have provided service to.
+
+## Who will use the application?
+In the modern era with the advent of the internet and technology, individuals of all backgrounds are opening up small businesses and thriving. As they scale their businesses and continue expanding their profits, it becomes much more difficult to keep track of customer purchases. Many small business lose out on profit because they have to expend man power on manually keeping track of business expenses/purchases. Moreover, if the business owners aren't doing this tedious work on their own, they are outsourcing it to other employees or third-party companies which comes at financial cost. This Java desktop application will make business management more efficient, streamlined and cost-effective.
+
+## Why is this project of interest to you?
+This project is of interest to me because I am surrounded by young entrepreneurs who are trying to open up their own businesses. In particular my younger sister has recently opened up her own business and could use an application that allows her to print receipts for her customers and track basic customer information in one compact application. This will allow her to keep track of which items/services are the most popular and adjust her marketing accordingly which will ultimately yield more new customers and higher return rates.
+
 
 An example of text with **bold** and *italic* fonts.  Note that the IntelliJ markdown previewer doesn't seem to render 
 the bold and italic fonts correctly but they will appear correctly on GitHub.
