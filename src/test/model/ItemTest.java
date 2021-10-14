@@ -11,7 +11,7 @@ class ItemTest {
 
     @BeforeEach
     public void setup() {
-        item = new Item("toy car", 5.50);
+        item = new Item("toy car", 5.50, "A Hot Wheels Car");
     }
 
     @Test
@@ -26,6 +26,13 @@ class ItemTest {
         assertEquals(5.50, item.getPrice());
         item.setPrice(11.99);
         assertEquals(11.99, item.getPrice());
+    }
+
+    @Test
+    public void getDescriptionAndSetDescriptionTest() {
+        assertEquals("A Hot Wheels Car", item.getDescription());
+        item.setDescription("Lego Car");
+        assertEquals("Lego Car", item.getDescription());
     }
 
 }
