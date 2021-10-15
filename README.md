@@ -15,7 +15,7 @@ After the customer has chosen the type and quantity of item(s)/service(s), the b
 - Customer Phone Number
 - Items/Services Purchased (Which Items, Total Cost, etc.)
 
-If any of the entered information is incorrect, the user will have the option to go back and correct the entry. Then, the business management application user will be given the option to print a receipt for the customer (or to keep a copy for the business itself).
+The application user will be given the option to print a receipt for the customer (or to keep a copy for the business itself).
 The application will also keep track of all time customer purchase records. The business can view how much money they have made to date, which items/services are purchased the most and how many customers they have provided service to.
 
 ## Who will use the application?
@@ -27,7 +27,8 @@ This project is of interest to me because I am surrounded by young entrepreneurs
 ## User Stories
 - As a user, I want to be able to add an item/service to the catalogue list
 - As a user, I want to be able to view all the items/services in the catalogue list
-- As a user, I want to be able to select ("add to cart") specific items/services in the catalogue list
+- As a user, I want to be able to select ("add to customer cart") specific items/services in the catalogue list
+- As a user, I want to be able to remove ("remove from customer cart") specific items/services
 - As a user, I want to be able to update existing items/services in the catalogue list
 - As a user, I want to be able to delete items/services in the catalogue list
 - As a user, I want to be able to print a receipt of the customers purchases

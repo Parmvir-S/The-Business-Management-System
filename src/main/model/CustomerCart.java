@@ -3,11 +3,11 @@ package model;
 import java.util.ArrayList;
 
 public class CustomerCart {
-    private ArrayList<Item> cart;
-    private ItemList itemList;
+    private final ArrayList<Item> cart;
+    private final ItemList itemList;
 
     public CustomerCart(ItemList storeItems) {
-        cart = new ArrayList<Item>();
+        cart = new ArrayList<>();
         this.itemList = storeItems; //might need to change this
     }
 
@@ -15,7 +15,7 @@ public class CustomerCart {
     //MODIFIES: this
     //EFFECTS: adds the item with the passed in name to the customers cart
     public void addToCart(String item) {
-        for (Item storeItem: itemList.getItems()) {
+        for (Item storeItem : itemList.getItems()) {
             if (storeItem.getName().equals(item)) {
                 cart.add(storeItem);
             }
@@ -26,7 +26,7 @@ public class CustomerCart {
     //EFFECTS: removes the item with the passed in name from the customers cart
     public void removeFromCart(String itemName) {
         Item itemToRemove = new Item("", 0, "");
-        for (Item item: cart) {
+        for (Item item : cart) {
             if (item.getName().equals(itemName)) {
                 itemToRemove = item;
             }
@@ -37,7 +37,7 @@ public class CustomerCart {
     //EFFECTS: returns names all the items currently in the customers cart
     public String viewCart() {
         String cartContent = "";
-        for (Item item: cart) {
+        for (Item item : cart) {
             cartContent += item.getName() + ", ";
         }
         return cartContent;
@@ -52,7 +52,7 @@ public class CustomerCart {
     //EFFECTS: return the total price of all the items/services in the cart
     public double totalPrice() {
         double totalPrice = 0;
-        for (Item item: cart) {
+        for (Item item : cart) {
             totalPrice += item.getPrice();
         }
         return totalPrice;

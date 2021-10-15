@@ -40,6 +40,8 @@ public class ItemListTest {
 
         items.removeItem("lego truck");
         assertEquals(3, items.numberOfItemsInList());
+
+
     }
 
     @Test
@@ -55,6 +57,9 @@ public class ItemListTest {
         items.updateItem("marbles", "lego", 15.00,"building blocks");
         assertFalse(items.isItInItems("marbles"));
         assertTrue(items.isItInItems("lego"));
+
+        items.updateItem("trucks", "dinosaur", 15.00,"extinct");
+        assertFalse(items.isItInItems("trucks"));
     }
 
     @Test
@@ -70,5 +75,16 @@ public class ItemListTest {
 
         items.removeItem("toy#4");
         assertFalse(items.isItInItems("toy#4"));
+    }
+
+    @Test
+    public void numberOfItemsInListTest() {
+        for (int i = 1; i <= 5; i++) {
+            items.addItem(new Item("toy#" + i, i, ""));
+        }
+        assertEquals(5, items.numberOfItemsInList());
+        items.addItem(new Item("truck", 3.89, "kids toy"));
+        assertEquals(6, items.numberOfItemsInList());
+
     }
 }

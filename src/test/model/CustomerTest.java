@@ -18,13 +18,4 @@ public class CustomerTest {
                 123, new CustomerCart(storeItems));
     }
 
-    @Test
-    public void printReceiptTest() {
-        assertEquals("---Receipt---"
-                    + 1
-                    + "OG"
-                    + "raptors@gmail.com"
-                    + 123
-                    + "", customer.printReceipt());
-    }
 }

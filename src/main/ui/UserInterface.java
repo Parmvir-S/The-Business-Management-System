@@ -7,9 +7,9 @@ import java.util.Scanner;
 
 public class UserInterface {
 
-    private Scanner scanner;
-    private ItemList storeItems;
-    private AllCustomers allCustomers;
+    private final Scanner scanner;
+    private final ItemList storeItems;
+    private final AllCustomers allCustomers;
 
     public UserInterface() {
         scanner = new Scanner(System.in);
@@ -73,10 +73,9 @@ public class UserInterface {
         System.out.print("Item Name: ");
         String name = scanner.nextLine();
         System.out.print("Item Price: ");
-        Double price = Double.valueOf(scanner.nextLine());
+        Double price = scanner.nextDouble();
         System.out.print("Item Description: ");
         String description = scanner.nextLine();
-        System.out.println("");
 
         Item storeItem = new Item(name, price, description);
         storeItems.addItem(storeItem);
@@ -86,7 +85,6 @@ public class UserInterface {
         System.out.print("Item Name: ");
         String name = scanner.nextLine();
         storeItems.removeItem(name);
-        System.out.println("");
     }
 
     public void updateItemInStore() {
@@ -98,7 +96,6 @@ public class UserInterface {
         Double newPrice = scanner.nextDouble();
         System.out.print("New Description: ");
         String newDescription = scanner.nextLine();
-        System.out.println("");
 
         storeItems.updateItem(itemName, newName, newPrice, newDescription);
     }
@@ -108,7 +105,6 @@ public class UserInterface {
         double totalSales = allCustomers.getTotalSales();
         System.out.println("TOTAL CUSTOMERS: " + totalCustomers);
         System.out.println("TOTAL SALES: " + totalSales);
-        System.out.println("");
     }
 
     public void customerOptions() {
@@ -146,7 +142,6 @@ public class UserInterface {
         System.out.print("Phone Number: ");
         int phoneNumber = scanner.nextInt();
         CustomerCart cart = new CustomerCart(storeItems);
-        System.out.println("");
 
         Customer customer = new Customer(customerID, name, email, phoneNumber, cart);
         allCustomers.addCustomer(customer);
@@ -156,14 +151,13 @@ public class UserInterface {
         System.out.println("ALL CUSTOMERS:");
         String allCustomerNames = allCustomers.allCustomerNames();
         System.out.println(allCustomerNames);
-        System.out.println("");
     }
 
     public void accessCustomer() {
         System.out.print("Name: ");
         String name = scanner.nextLine();
 
-        for (Customer customer: allCustomers.getAllCustomers()) {
+        for (Customer customer : allCustomers.getAllCustomers()) {
             if (customer.getName().equals(name)) {
                 individualCustomerOptions(name);
             }
@@ -176,6 +170,7 @@ public class UserInterface {
             System.out.println("Remove - Remove Items From Cart");
             System.out.println("View - View Items In Cart");
             System.out.println("Total - View The Total Price So Far");
+            System.out.println("Print - Print Receipt");
             System.out.println("Quit - Exit to the Customer Options");
             String userInput = scanner.nextLine().toLowerCase();
 
@@ -191,8 +186,14 @@ public class UserInterface {
                 viewCartItems(name);
             } else if (userInput.equals("total")) {
                 getTotalCartCost(name);
+            } else if (userInput.equals("print")) {
+                printReceipt(name);
             }
         }
+    }
+
+    public void printReceipt(String name) {
+        allCustomers.getCustomer(name).printReceipt();
     }
 
     public void addItemToCart(String customerName) {
@@ -208,12 +209,13 @@ public class UserInterface {
     }
 
     public void viewCartItems(String customerName) {
-        System.out.println("CART ITEMS");
+        System.out.println("---CART ITEMS---");
         String cartItems = allCustomers.getCustomer(customerName).getCart().viewCart();
         System.out.println(cartItems);
     }
 
     public void getTotalCartCost(String customerName) {
+        System.out.println("---TOTAL---");
         double total = allCustomers.getCustomer(customerName).getCart().totalPrice();
         System.out.println(total);
     }

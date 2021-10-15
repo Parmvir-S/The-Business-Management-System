@@ -4,17 +4,17 @@ import java.util.ArrayList;
 
 // This class is represents all customers that a store/business has
 public class AllCustomers {
-    private ArrayList<Customer> customers;
+    private final ArrayList<Customer> customers;
 
     public AllCustomers() {
-        customers = new ArrayList<Customer>();
+        customers = new ArrayList<>();
     }
 
     //REQUIRES: Customer being searched should be in customers - might change this method
     //EFFECTS: returns customer with given name if found in customers
     public Customer getCustomer(String name) {
         Customer find = customers.get(0);
-        for (Customer customer: customers) {
+        for (Customer customer : customers) {
             if (customer.getName().equals(name)) {
                 find = customer;
             }
@@ -31,8 +31,8 @@ public class AllCustomers {
     //MODIFIES: this
     //EFFECTS: removes a customer of the given name from the customers list
     public void removeCustomer(String customerName) {
-        Customer customerToRemove = new Customer(0, "","",0,new CustomerCart(new ItemList()));
-        for (Customer customer: customers) {
+        Customer customerToRemove = new Customer(0, "", "", 0, new CustomerCart(new ItemList()));
+        for (Customer customer : customers) {
             if (customer.getName().equals(customerName)) {
                 customerToRemove = customer;
             }
@@ -53,7 +53,7 @@ public class AllCustomers {
     //EFFECTS: returns the total sales of the store
     public double getTotalSales() {
         double total = 0;
-        for (Customer customer: customers) {
+        for (Customer customer : customers) {
             total += customer.getCart().totalPrice();
         }
         return total;
@@ -62,7 +62,7 @@ public class AllCustomers {
     //EFFECTS: returns the names of all the customers in the customers list
     public String allCustomerNames() {
         String customerNames = "";
-        for (Customer customer: customers) {
+        for (Customer customer : customers) {
             customerNames += customer.getName() + " - ";
         }
         return customerNames;
