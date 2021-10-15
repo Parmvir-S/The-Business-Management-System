@@ -10,8 +10,12 @@ public class CustomerTest {
 
     @BeforeEach
     public void setup() {
+        ItemList storeItems = new ItemList();
+        for (int i = 1; i <= 5; i++) {
+            storeItems.addItem(new Item("item#" + i, 3.00, "toy"));
+        }
         customer = new Customer(1, "OG", "raptors@gmail.com",
-                123, new CustomerCart());
+                123, new CustomerCart(storeItems));
     }
 
     @Test

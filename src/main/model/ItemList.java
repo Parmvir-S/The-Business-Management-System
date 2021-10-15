@@ -1,5 +1,6 @@
 package model;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 //This class represents a catalogue/ItemList that contains all items/services offered by business
@@ -9,6 +10,11 @@ public class ItemList {
     //EFFECTS: constructs an ItemList object when called
     public ItemList() {
         items = new ArrayList<Item>();
+    }
+
+    //EFFECTS: returns the items arraylist
+    public ArrayList<Item> getItems() {
+        return items;
     }
 
     //MODIFIES: this
@@ -31,12 +37,11 @@ public class ItemList {
 
     //EFFECTS: print all items/services in items currently
     public void viewItems() {
+        System.out.println("---STORE ITEMS---");
         for (Item item: items) {
-            System.out.println(item.getName());
-            System.out.println(item.getPrice());
-            System.out.println(item.getDescription());
-            System.out.println("==========================");
+            System.out.println(item.getName() + ", " + item.getPrice() + ", " + item.getDescription());
         }
+        System.out.println("");
     }
 
     //REQUIRES: item that needs to be updated must be in the items (ArrayList)
