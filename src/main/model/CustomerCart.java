@@ -14,9 +14,9 @@ public class CustomerCart {
     //REQUIRES: the item added to the cart must be offered by the store (in ItemList)
     //MODIFIES: this
     //EFFECTS: adds the item with the passed in name to the customers cart
-    public void addToCart(Item item) {
+    public void addToCart(String item) {
         for (Item storeItem: itemList.getItems()) {
-            if (storeItem.getName().equals(item.getName())) {
+            if (storeItem.getName().equals(item)) {
                 cart.add(storeItem);
             }
         }

@@ -22,20 +22,20 @@ public class CustomerCartTest {
     @Test
     public void addToCartTest() {
         assertEquals(0, cart.numberOfItemsInCart());
-        cart.addToCart(new Item("item#1", 3.00, "toy"));
+        cart.addToCart("item#1");
         assertEquals(1, cart.numberOfItemsInCart());
 
-        cart.addToCart(new Item("item#2", 3.00, "toy"));
+        cart.addToCart("item#2");
         assertEquals(2, cart.numberOfItemsInCart());
 
-        cart.addToCart(new Item("car", 7.99, "toy car"));
+        cart.addToCart("car");
         assertEquals(2, cart.numberOfItemsInCart());
     }
 
     @Test
     public void removeFromCartTest() {
         for (int i = 1; i <= 5; i++) {
-            cart.addToCart(new Item("item#" + i, 3.00, "ABC"));
+            cart.addToCart("item#" + i);
         }
         assertEquals(5, cart.numberOfItemsInCart());
 
@@ -52,7 +52,7 @@ public class CustomerCartTest {
     @Test
     public void viewCartTest() {
         for (int i = 1; i <= 5; i++) {
-            cart.addToCart(new Item("item#" + i, 3.00, "ABC"));
+            cart.addToCart("item#" + i);
         }
 
         assertEquals("item#1, "
@@ -65,11 +65,11 @@ public class CustomerCartTest {
     @Test
     public void totalPriceTest() {
         for (int i = 1; i <= 5; i++) {
-            cart.addToCart(new Item("item#" + i, 3.00, "toy"));
+            cart.addToCart("item#" + i);
         }
         assertEquals(15.00, cart.totalPrice());
 
-        cart.addToCart(new Item("lego", 4.00, "building blocks"));
+        cart.addToCart("lego");
         assertEquals(15.00, cart.totalPrice());
     }
 }
