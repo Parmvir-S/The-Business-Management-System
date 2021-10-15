@@ -5,6 +5,7 @@ import model.*;
 import java.util.Random;
 import java.util.Scanner;
 
+//This is the UI Class - where all the console based interaction will occur
 public class UserInterface {
 
     private final Scanner scanner;
@@ -17,6 +18,7 @@ public class UserInterface {
         allCustomers = new AllCustomers();
     }
 
+    //EFFECTS: The main method that links all other methods together
     public void start() {
         while (true) {
             System.out.println("Store - Store Options");
@@ -38,6 +40,7 @@ public class UserInterface {
         }
     }
 
+    //EFFECTS: provides the store options
     public void storeOptions() {
         while (true) {
             System.out.println("View - View Items In Store");
@@ -65,10 +68,13 @@ public class UserInterface {
         }
     }
 
+    //EFFECTS: allows user to view store items
     public void viewItems() {
         storeItems.viewItems();
     }
 
+    //MODIFIES: this
+    //EFFECTS: allows user to add store items
     public void addItemsToStore() {
         System.out.print("Item Name: ");
         String name = scanner.nextLine();
@@ -81,12 +87,16 @@ public class UserInterface {
         storeItems.addItem(storeItem);
     }
 
+    //MODIFIES: this
+    //EFFECTS: allows user to remove store items
     public void removeItemsFromStore() {
         System.out.print("Item Name: ");
         String name = scanner.nextLine();
         storeItems.removeItem(name);
     }
 
+    //MODIFIES: this
+    //EFFECTS: allows user to update store items
     public void updateItemInStore() {
         System.out.print("Item Name: ");
         String itemName = scanner.nextLine();
@@ -100,6 +110,7 @@ public class UserInterface {
         storeItems.updateItem(itemName, newName, newPrice, newDescription);
     }
 
+    //EFFECTS: allows user to view store stats
     public void stats() {
         int totalCustomers = allCustomers.getTotalNumberOfCustomers();
         double totalSales = allCustomers.getTotalSales();
@@ -107,6 +118,7 @@ public class UserInterface {
         System.out.println("TOTAL SALES: " + totalSales);
     }
 
+    //EFFECTS: gives the customer options menu
     public void customerOptions() {
         while (true) {
             System.out.println("Create - Create Customer");
@@ -132,6 +144,8 @@ public class UserInterface {
         }
     }
 
+    //MODIFIES: this
+    //creates a new customer
     public void createCustomer() {
         Random random = new Random();
         int customerID = random.nextInt();
@@ -147,12 +161,14 @@ public class UserInterface {
         allCustomers.addCustomer(customer);
     }
 
+    //EFFECTS: returns all customers
     public void viewCustomers() {
         System.out.println("ALL CUSTOMERS:");
         String allCustomerNames = allCustomers.allCustomerNames();
         System.out.println(allCustomerNames);
     }
 
+    //EFFECTS: allows access to an individual customers menu
     public void accessCustomer() {
         System.out.print("Name: ");
         String name = scanner.nextLine();
@@ -164,6 +180,7 @@ public class UserInterface {
         }
     }
 
+    //EFFECTS: gives the individual customer menu
     public void individualCustomerOptions(String name) {
         while (true) {
             System.out.println("Add - Add Items To Cart");
@@ -192,34 +209,43 @@ public class UserInterface {
         }
     }
 
+    //EFFECTS: allows user to print receipt
     public void printReceipt(String name) {
         allCustomers.getCustomer(name).printReceipt();
     }
 
+    //MODIFIES: this
+    //EFFECTS: adds item to cart
     public void addItemToCart(String customerName) {
         System.out.print("Name: ");
         String itemName = scanner.nextLine();
         allCustomers.getCustomer(customerName).getCart().addToCart(itemName);
     }
 
+    //MODIFIES: this
+    //EFFECTS: adds item from cart
     public void removeItemFromCart(String customerName) {
         System.out.print("Name: ");
         String itemName = scanner.nextLine();
         allCustomers.getCustomer(customerName).getCart().removeFromCart(itemName);
     }
 
+    //EFFECTS: view items in cart
     public void viewCartItems(String customerName) {
         System.out.println("---CART ITEMS---");
         String cartItems = allCustomers.getCustomer(customerName).getCart().viewCart();
         System.out.println(cartItems);
     }
 
+    //EFFECTS: view cart total
     public void getTotalCartCost(String customerName) {
         System.out.println("---TOTAL---");
         double total = allCustomers.getCustomer(customerName).getCart().totalPrice();
         System.out.println(total);
     }
 
+    //MODIFIES: this
+    //EFFECTS: removes customer from allCustomers
     public void removeCustomer() {
         System.out.print("Name: ");
         String name = scanner.nextLine();

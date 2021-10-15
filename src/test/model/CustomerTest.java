@@ -14,8 +14,46 @@ public class CustomerTest {
         for (int i = 1; i <= 5; i++) {
             storeItems.addItem(new Item("item#" + i, 3.00, "toy"));
         }
+        CustomerCart cart = new CustomerCart(storeItems);
         customer = new Customer(1, "OG", "raptors@gmail.com",
-                123, new CustomerCart(storeItems));
+                123, cart);
     }
 
+    @Test
+    public void getCustomerIDTest() {
+        assertEquals(1, customer.getCustomerID());
+    }
+
+    @Test
+    public void getNameTest() {
+        assertEquals("OG", customer.getName());
+    }
+
+    @Test
+    public void setNameTest() {
+        assertEquals("OG", customer.getName());
+        customer.setName("Pascal");
+        assertEquals("Pascal", customer.getName());
+    }
+
+    @Test
+    public void getEmailTest() {
+        assertEquals("raptors@gmail.com", customer.getEmail());
+    }
+
+    @Test
+    public void getPhoneNumberTest() {
+        assertEquals(123, customer.getPhoneNumber());
+    }
+
+    @Test
+    public void getCartTest() {
+        ItemList items = new ItemList();
+        for (int i = 1; i <= 5; i++) {
+            items.addItem(new Item("item#" + i, 3.00, "toy"));
+        }
+        CustomerCart cartItems = new CustomerCart(items);
+        assertEquals(cartItems.numberOfItemsInCart(), customer.getCart().numberOfItemsInCart());
+        assertEquals(cartItems.totalPrice(), customer.getCart().totalPrice());
+    }
 }

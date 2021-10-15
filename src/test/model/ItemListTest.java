@@ -3,6 +3,8 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ItemListTest {
@@ -87,4 +89,15 @@ public class ItemListTest {
         assertEquals(6, items.numberOfItemsInList());
 
     }
+
+    @Test
+    public void getItemsTest() {
+        for (int i = 1; i <= 3; i++) {
+            items.addItem(new Item("toy#" + i, i, ""));
+        }
+        assertEquals("toy#1", items.getItems().get(0).getName());
+        assertEquals("toy#2", items.getItems().get(1).getName());
+        assertEquals("toy#3", items.getItems().get(2).getName());
+    }
+
 }
