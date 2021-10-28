@@ -3,6 +3,8 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CustomerTest {
@@ -55,5 +57,12 @@ public class CustomerTest {
         CustomerCart cartItems = new CustomerCart(items);
         assertEquals(cartItems.numberOfItemsInCart(), customer.getCart().numberOfItemsInCart());
         assertEquals(cartItems.totalPrice(), customer.getCart().totalPrice());
+    }
+
+    @Test
+    public void getReceiptTest() {
+        assertEquals(7, customer.getReceipt().size());
+        customer.getCart().addToCart("item#3");
+        assertEquals(7, customer.getReceipt().size());
     }
 }

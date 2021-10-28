@@ -34,14 +34,6 @@ public class ItemList {
         items.remove(itemToRemove);
     }
 
-    //EFFECTS: print all items/services in items currently
-    public void viewItems() {
-        System.out.println("---STORE ITEMS---");
-        for (Item item : items) {
-            System.out.println(item.getName() + ", " + item.getPrice() + ", " + item.getDescription());
-        }
-    }
-
     //REQUIRES: item that needs to be updated must be in the items (ArrayList)
     //MODIFIES: this
     //EFFECTS: updates the name, price or description for item named itemName

@@ -1,5 +1,8 @@
 package model;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 //This class represents a single customer who will be purchasing items/services
 public class Customer {
     private final int customerID;
@@ -48,12 +51,15 @@ public class Customer {
     }
 
     //EFFECTS: prints out a "receipt"
-    public void printReceipt() {
-        System.out.println("---RECEIPT---");
-        System.out.println("ID: " + getCustomerID());
-        System.out.println("Name: " + getName());
-        System.out.println("Email: " + getEmail());
-        System.out.println("Phone Number: " + getPhoneNumber());
-        System.out.println("Cart Items: " + getCart().viewCart());
+    public ArrayList<String> getReceipt() {
+        ArrayList<String> receiptInfo = new ArrayList<>();
+        receiptInfo.add("---RECEIPT---");
+        receiptInfo.add("ID: " + getCustomerID());
+        receiptInfo.add("Name: " + getName());
+        receiptInfo.add("Email: " + getEmail());
+        receiptInfo.add("Phone Number: " + getPhoneNumber());
+        receiptInfo.add("Cart Items: " + getCart().viewCart());
+        receiptInfo.add("Total: " + getCart().totalPrice());
+        return receiptInfo;
     }
 }

@@ -98,6 +98,7 @@ public class ItemListTest {
         assertEquals("toy#1", items.getItems().get(0).getName());
         assertEquals("toy#2", items.getItems().get(1).getName());
         assertEquals("toy#3", items.getItems().get(2).getName());
+        assertEquals(3, items.numberOfItemsInList());
     }
 
 }

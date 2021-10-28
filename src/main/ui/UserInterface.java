@@ -2,6 +2,7 @@ package ui;
 
 import model.*;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -70,7 +71,13 @@ public class UserInterface {
 
     //EFFECTS: allows user to view store items
     public void viewItems() {
-        storeItems.viewItems();
+        ArrayList<Item> view = storeItems.getItems();
+        System.out.println(("---STORE ITEMS---"));
+        for (Item item: view) {
+            System.out.println("ITEM NAME: " + item.getName());
+            System.out.println("ITEM DESCRIPTION: " + item.getDescription());
+            System.out.println("ITEM PRICE: " + item.getPrice());
+        }
     }
 
     //MODIFIES: this
@@ -78,10 +85,12 @@ public class UserInterface {
     public void addItemsToStore() {
         System.out.print("Item Name: ");
         String name = scanner.nextLine();
-        System.out.print("Item Price: ");
-        Double price = scanner.nextDouble();
+
         System.out.print("Item Description: ");
         String description = scanner.nextLine();
+
+        System.out.print("Item Price: ");
+        Double price = scanner.nextDouble();
 
         Item storeItem = new Item(name, price, description);
         storeItems.addItem(storeItem);
@@ -100,12 +109,16 @@ public class UserInterface {
     public void updateItemInStore() {
         System.out.print("Item Name: ");
         String itemName = scanner.nextLine();
+
         System.out.print("New Name: ");
         String newName = scanner.nextLine();
-        System.out.print("New Price: ");
-        Double newPrice = scanner.nextDouble();
+
         System.out.print("New Description: ");
         String newDescription = scanner.nextLine();
+
+        System.out.print("New Price: ");
+        Double newPrice = scanner.nextDouble();
+
 
         storeItems.updateItem(itemName, newName, newPrice, newDescription);
     }
@@ -211,7 +224,10 @@ public class UserInterface {
 
     //EFFECTS: allows user to print receipt
     public void printReceipt(String name) {
-        allCustomers.getCustomer(name).printReceipt();
+        ArrayList<String> receiptInfo = allCustomers.getCustomer(name).getReceipt();
+        for (String info: receiptInfo) {
+            System.out.println(info);
+        }
     }
 
     //MODIFIES: this
