@@ -1,7 +1,12 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
+import java.sql.Wrapper;
+
 // This class represents an item/service that a business offers
-public class Item {
+public class Item implements Writable {
     private String name;
     private double price;
     private String description;
@@ -46,5 +51,12 @@ public class Item {
         this.price = price;
     }
 
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        json.put("price", price);
+        json.put("description", description);
+        return json;
+    }
 }
-

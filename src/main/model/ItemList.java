@@ -1,9 +1,13 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 
 //This class represents a catalogue/ItemList that contains all items/services offered by business
-public class ItemList {
+public class ItemList implements Writable {
     private final ArrayList<Item> items;
 
     //EFFECTS: constructs an ItemList object when called
@@ -64,4 +68,21 @@ public class ItemList {
     }
 
 
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("Store Items", thingiesToJson());
+        return json;
+    }
+
+    // EFFECTS: returns things in this workroom as a JSON array
+    private JSONArray thingiesToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Item i : items) {
+            jsonArray.put(i.toJson());
+        }
+
+        return jsonArray;
+    }
 }

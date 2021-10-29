@@ -1,7 +1,11 @@
 package ui;
 
 import model.*;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
@@ -9,14 +13,19 @@ import java.util.Scanner;
 //This is the UI Class - where all the console based interaction will occur
 public class UserInterface {
 
-    private final Scanner scanner;
-    private final ItemList storeItems;
-    private final AllCustomers allCustomers;
+    private static final String JSON_STORE = "./data/app.json";
+    private  Scanner scanner;
+    private  ItemList storeItems;
+    private  AllCustomers allCustomers;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     public UserInterface() {
         scanner = new Scanner(System.in);
         storeItems = new ItemList();
         allCustomers = new AllCustomers();
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
     }
 
     //EFFECTS: The main method that links all other methods together
@@ -24,6 +33,8 @@ public class UserInterface {
         while (true) {
             System.out.println("Store - Store Options");
             System.out.println("Customer - Customer Options");
+            System.out.println("Save - Save Store Data to File");
+            System.out.println("Load - Load Store Data to File");
             System.out.println("Quit - Exit The Application");
             String userInput = scanner.nextLine().toLowerCase();
 
@@ -35,9 +46,36 @@ public class UserInterface {
                 storeOptions();
             } else if (userInput.equals("customer")) {
                 customerOptions();
+            } else if (userInput.equals("save")) {
+                saveStoreData();
+            } else if (userInput.equals("load")) {
+                loadStoreData();
             } else {
                 System.out.println("Invalid Entry - Try Again");
             }
+        }
+    }
+
+    //EFFECTS: saves the store data to file
+    public void saveStoreData() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(storeItems);
+            jsonWriter.close();
+            System.out.println("Store Data Was Saved To " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to to write to file: " + JSON_STORE);
+        }
+    }
+
+    //MODIFIES: this
+    //EFFECTS: loads store data from file
+    public void loadStoreData() {
+        try {
+            storeItems = jsonReader.read();
+            System.out.println("Loaded from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
         }
     }
 
@@ -77,6 +115,7 @@ public class UserInterface {
             System.out.println("ITEM NAME: " + item.getName());
             System.out.println("ITEM DESCRIPTION: " + item.getDescription());
             System.out.println("ITEM PRICE: " + item.getPrice());
+            System.out.println("");
         }
     }
 
