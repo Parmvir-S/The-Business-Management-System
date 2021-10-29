@@ -16,7 +16,7 @@ public class CustomerTest {
         for (int i = 1; i <= 5; i++) {
             storeItems.addItem(new Item("item#" + i, 3.00, "toy"));
         }
-        CustomerCart cart = new CustomerCart(storeItems);
+        CustomerCart cart = new CustomerCart();
         customer = new Customer(1, "OG", "raptors@gmail.com",
                 123, cart);
     }
@@ -54,7 +54,7 @@ public class CustomerTest {
         for (int i = 1; i <= 5; i++) {
             items.addItem(new Item("item#" + i, 3.00, "toy"));
         }
-        CustomerCart cartItems = new CustomerCart(items);
+        CustomerCart cartItems = new CustomerCart();
         assertEquals(cartItems.numberOfItemsInCart(), customer.getCart().numberOfItemsInCart());
         assertEquals(cartItems.totalPrice(), customer.getCart().totalPrice());
     }
@@ -62,7 +62,7 @@ public class CustomerTest {
     @Test
     public void getReceiptTest() {
         assertEquals(7, customer.getReceipt().size());
-        customer.getCart().addToCart("item#3");
+        customer.getCart().addToCart(new Item("item#3", 3.00, "toy"));
         assertEquals(7, customer.getReceipt().size());
     }
 }

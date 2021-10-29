@@ -3,7 +3,6 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -16,26 +15,29 @@ public class CustomerCartTest {
         for (int i = 1; i <= 5; i++) {
             storeItems.addItem(new Item("item#" + i, 3.00, "toy"));
         }
-        cart = new CustomerCart(storeItems);
+        cart = new CustomerCart();
     }
 
     @Test
     public void addToCartTest() {
         assertEquals(0, cart.numberOfItemsInCart());
-        cart.addToCart("item#1");
+        Item item1 = new Item("item#1", 3.00, "toy");
+        cart.addToCart(item1);
         assertEquals(1, cart.numberOfItemsInCart());
 
-        cart.addToCart("item#2");
+        Item item2 = new Item("item#2", 3.00, "toy");
+        cart.addToCart(item2);
         assertEquals(2, cart.numberOfItemsInCart());
 
-        cart.addToCart("car");
-        assertEquals(2, cart.numberOfItemsInCart());
+        Item itemCar = new Item("car", 63.00, "toy");
+        cart.addToCart(itemCar);
+        assertEquals(3, cart.numberOfItemsInCart());
     }
 
     @Test
     public void removeFromCartTest() {
         for (int i = 1; i <= 5; i++) {
-            cart.addToCart("item#" + i);
+            cart.addToCart(new Item("item#" + i, i, ""));
         }
         assertEquals(5, cart.numberOfItemsInCart());
 
@@ -52,7 +54,7 @@ public class CustomerCartTest {
     @Test
     public void viewCartTest() {
         for (int i = 1; i <= 5; i++) {
-            cart.addToCart("item#" + i);
+            cart.addToCart(new Item("item#" + i, 0, ""));
         }
 
         assertEquals("item#1, "
@@ -65,11 +67,11 @@ public class CustomerCartTest {
     @Test
     public void totalPriceTest() {
         for (int i = 1; i <= 5; i++) {
-            cart.addToCart("item#" + i);
+            cart.addToCart(new Item("item#" + i, i, ""));
         }
         assertEquals(15.00, cart.totalPrice());
 
-        cart.addToCart("lego");
-        assertEquals(15.00, cart.totalPrice());
+        cart.addToCart(new Item("item#3", 3, ""));
+        assertEquals(18.00, cart.totalPrice());
     }
 }

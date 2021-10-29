@@ -14,17 +14,17 @@ import org.json.*;
 
 // Represents a reader that reads ItemList from JSON data stored in file
 public class JsonReader {
-    private final String source;
+    private final String source1;
 
     // EFFECTS: constructs reader to read from source file
-    public JsonReader(String source) {
-        this.source = source;
+    public JsonReader(String source1) {
+        this.source1 = source1;
     }
 
     // EFFECTS: reads ItemList from file and returns it;
     // throws IOException if an error occurs reading data from file
     public ItemList read() throws IOException {
-        String jsonData = readFile(source);
+        String jsonData = readFile(source1);
         JSONObject jsonObject = new JSONObject(jsonData);
         return parseStoreItems(jsonObject);
     }
@@ -42,7 +42,6 @@ public class JsonReader {
 
     // EFFECTS: parses ItemList from JSON object and returns it
     private ItemList parseStoreItems(JSONObject jsonObject) {
-//        String name = jsonObject.getString("Store Items");
         ItemList items = new ItemList();
         addItems(items, jsonObject);
         return items;

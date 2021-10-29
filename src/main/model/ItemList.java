@@ -58,7 +58,7 @@ public class ItemList implements Writable {
     }
 
     //EFFECTS: returns true if item with itemName is in items. Otherwise, false
-    public Boolean isItInItems(String itemName) {
+    public  Boolean isItInItems(String itemName) {
         for (Item item : items) {
             if (item.getName().equals(itemName)) {
                 return true;
@@ -71,12 +71,12 @@ public class ItemList implements Writable {
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
-        json.put("Store Items", thingiesToJson());
+        json.put("Store Items", itemsToJson());
         return json;
     }
 
     // EFFECTS: returns things in this workroom as a JSON array
-    private JSONArray thingiesToJson() {
+    private JSONArray itemsToJson() {
         JSONArray jsonArray = new JSONArray();
 
         for (Item i : items) {

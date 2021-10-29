@@ -1,0 +1,12 @@
+{"Store Items": [
+    {
+        "price": 9.99,
+        "name": "lego",
+        "description": "building blocks"
+    },
+    {
+        "price": 5.77,
+        "name": "car",
+        "description": "hot wheels"
+    }
+]}

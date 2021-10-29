@@ -1,0 +1,27 @@
+{"Store Items": [
+  {
+    "price": 3,
+    "name": "apple",
+    "description": "fruit"
+  },
+  {
+    "price": 6,
+    "name": "orange",
+    "description": "fruit"
+  },
+  {
+    "price": 7,
+    "name": "grape",
+    "description": "fruit"
+  },
+  {
+    "price": 8,
+    "name": "pear",
+    "description": "fruit"
+  },
+  {
+    "price": 9,
+    "name": "mango",
+    "description": "fruit"
+  }
+]}

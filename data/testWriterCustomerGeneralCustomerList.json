@@ -1,0 +1,16 @@
+{"Customers": [
+    {
+        "phoneNumber": 123,
+        "customerID": 1,
+        "name": "ps",
+        "email": "",
+        "cart": []
+    },
+    {
+        "phoneNumber": 321,
+        "customerID": 2,
+        "name": "ls",
+        "email": "",
+        "cart": []
+    }
+]}

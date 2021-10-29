@@ -1,10 +1,14 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 //This class represents a single customer who will be purchasing items/services
-public class Customer {
+public class Customer implements Writable {
     private final int customerID;
     private String name;
     private final String email;
@@ -61,5 +65,27 @@ public class Customer {
         receiptInfo.add("Cart Items: " + getCart().viewCart());
         receiptInfo.add("Total: " + getCart().totalPrice());
         return receiptInfo;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("customerID", customerID);
+        json.put("name", name);
+        json.put("email", email);
+        json.put("phoneNumber", phoneNumber);
+        json.put("cart", customersToJson());
+        return json;
+    }
+
+    // EFFECTS: returns things in this workroom as a JSON array
+    private JSONArray customersToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Item i : cart.getItems()) {
+            jsonArray.put(i.toJson());
+        }
+
+        return jsonArray;
     }
 }

@@ -8,13 +8,13 @@ import org.json.JSONObject;
 import java.io.*;
 
 // Represents a writer that writes JSON representation of ItemList to file
-public class JsonWriter {
+public class JsonWriterCustomer {
     private static final int TAB = 4;
     private PrintWriter writer;
     private String destination;
 
     // EFFECTS: constructs writer to write to destination file
-    public JsonWriter(String destination) {
+    public JsonWriterCustomer(String destination) {
         this.destination = destination;
     }
 
@@ -27,8 +27,8 @@ public class JsonWriter {
 
     // MODIFIES: this
     // EFFECTS: writes JSON representation of ItemList to file
-    public void write(ItemList items) {
-        JSONObject json = items.toJson();
+    public void write(AllCustomers customers) {
+        JSONObject json = customers.toJson();
         saveToFile(json.toString(TAB));
     }
 

@@ -1,9 +1,13 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 
 // This class is represents all customers that a store/business has
-public class AllCustomers {
+public class AllCustomers implements Writable {
     private final ArrayList<Customer> customers;
 
     public AllCustomers() {
@@ -31,7 +35,7 @@ public class AllCustomers {
     //MODIFIES: this
     //EFFECTS: removes a customer of the given name from the customers list
     public void removeCustomer(String customerName) {
-        Customer customerToRemove = new Customer(0, "", "", 0, new CustomerCart(new ItemList()));
+        Customer customerToRemove = new Customer(0, "", "", 0, new CustomerCart());
         for (Customer customer : customers) {
             if (customer.getName().equals(customerName)) {
                 customerToRemove = customer;
@@ -66,5 +70,23 @@ public class AllCustomers {
             customerNames += customer.getName() + " - ";
         }
         return customerNames;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("Customers", customersToJson());
+        return json;
+    }
+
+    // EFFECTS: returns things in this workroom as a JSON array
+    private JSONArray customersToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Customer c : customers) {
+            jsonArray.put(c.toJson());
+        }
+
+        return jsonArray;
     }
 }

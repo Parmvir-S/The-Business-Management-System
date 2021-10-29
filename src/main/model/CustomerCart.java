@@ -1,25 +1,27 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
+
 import java.util.ArrayList;
 
-public class CustomerCart {
+public class CustomerCart implements Writable {
     private final ArrayList<Item> cart;
-    private final ItemList itemList;
 
-    public CustomerCart(ItemList storeItems) {
+    public CustomerCart() {
         cart = new ArrayList<>();
-        this.itemList = storeItems; //might need to change this
     }
 
-    //REQUIRES: the item added to the cart must be offered by the store (in ItemList)
+    public ArrayList<Item> getItems() {
+        return cart;
+    }
+
     //MODIFIES: this
     //EFFECTS: adds the item with the passed in name to the customers cart
-    public void addToCart(String item) {
-        for (Item storeItem : itemList.getItems()) {
-            if (storeItem.getName().equals(item)) {
-                cart.add(storeItem);
-            }
-        }
+    public void addToCart(Item item) {
+        cart.add(item);
     }
 
     //MODIFIES: this
@@ -56,5 +58,22 @@ public class CustomerCart {
             totalPrice += item.getPrice();
         }
         return totalPrice;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("items", itemsToJson());
+        return json;
+    }
+
+    private JSONArray itemsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Item i : cart) {
+            jsonArray.put(i.toJson());
+        }
+
+        return jsonArray;
     }
 }
