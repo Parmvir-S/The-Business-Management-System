@@ -17,14 +17,15 @@ public class UserInterface {
 
     private static final String JSON_STORE_ITEMS = "./data/storeItemsData.json";
     private static final String JSON_STORE_CUSTOMERS = "./data/allCustomersData.json";
-    private  Scanner scanner;
+    private  final Scanner scanner;
     private  ItemList storeItems;
     private  AllCustomers allCustomers;
-    private JsonWriter jsonWriter;
-    private JsonReader jsonReader;
-    private JsonWriterCustomer jsonWriterCustomer;
-    private JsonReaderCustomer jsonReaderCustomer;
+    private final JsonWriter jsonWriter;
+    private final JsonReader jsonReader;
+    private final JsonWriterCustomer jsonWriterCustomer;
+    private final JsonReaderCustomer jsonReaderCustomer;
 
+    //EFFECTS: creates a new UserInterface object
     public UserInterface() {
         scanner = new Scanner(System.in);
         storeItems = new ItemList();

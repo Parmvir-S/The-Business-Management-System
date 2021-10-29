@@ -7,13 +7,16 @@ import persistence.Writable;
 
 import java.util.ArrayList;
 
+//This class represents a customers cart
 public class CustomerCart implements Writable {
     private final ArrayList<Item> cart;
 
+    //EFFECTS: creates a new CustomerCart object with no items in it
     public CustomerCart() {
         cart = new ArrayList<>();
     }
 
+    //EFFECTS: returns the cart
     public ArrayList<Item> getItems() {
         return cart;
     }
@@ -60,6 +63,7 @@ public class CustomerCart implements Writable {
         return totalPrice;
     }
 
+    // EFFECTS: returns this as JSON object
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -67,6 +71,7 @@ public class CustomerCart implements Writable {
         return json;
     }
 
+    // EFFECTS: returns items in cart as a JSON array
     private JSONArray itemsToJson() {
         JSONArray jsonArray = new JSONArray();
 

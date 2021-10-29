@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class AllCustomers implements Writable {
     private final ArrayList<Customer> customers;
 
+    //EFFECTS: generates a new AllCustomers object with zero customers
     public AllCustomers() {
         customers = new ArrayList<>();
     }
@@ -72,6 +73,7 @@ public class AllCustomers implements Writable {
         return customerNames;
     }
 
+    // EFFECTS: returns this as JSON object
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -79,7 +81,7 @@ public class AllCustomers implements Writable {
         return json;
     }
 
-    // EFFECTS: returns things in this workroom as a JSON array
+    // EFFECTS: returns customers in this AllCustomers list as a JSON array
     private JSONArray customersToJson() {
         JSONArray jsonArray = new JSONArray();
 

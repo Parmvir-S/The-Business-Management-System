@@ -1,17 +1,16 @@
 package persistence;
 
 import model.AllCustomers;
-import model.ItemList;
 import org.json.JSONObject;
 
 
 import java.io.*;
 
-// Represents a writer that writes JSON representation of ItemList to file
+// Represents a writer that writes JSON representation of AllCustomers to file
 public class JsonWriterCustomer {
     private static final int TAB = 4;
     private PrintWriter writer;
-    private String destination;
+    private final String destination;
 
     // EFFECTS: constructs writer to write to destination file
     public JsonWriterCustomer(String destination) {
@@ -26,7 +25,7 @@ public class JsonWriterCustomer {
     }
 
     // MODIFIES: this
-    // EFFECTS: writes JSON representation of ItemList to file
+    // EFFECTS: writes JSON representation of AllCustomers to file
     public void write(AllCustomers customers) {
         JSONObject json = customers.toJson();
         saveToFile(json.toString(TAB));

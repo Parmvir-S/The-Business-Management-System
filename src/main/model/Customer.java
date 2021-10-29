@@ -4,7 +4,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import persistence.Writable;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 //This class represents a single customer who will be purchasing items/services
@@ -15,6 +14,7 @@ public class Customer implements Writable {
     private final int phoneNumber;
     private final CustomerCart cart;
 
+    //EFFECTS: creates a new customer object
     public Customer(int customerID, String name, String email, int phoneNumber, CustomerCart cart) {
         this.customerID = customerID;
         this.name = name;
@@ -67,6 +67,7 @@ public class Customer implements Writable {
         return receiptInfo;
     }
 
+    // EFFECTS: returns this as JSON object
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -78,7 +79,7 @@ public class Customer implements Writable {
         return json;
     }
 
-    // EFFECTS: returns things in this workroom as a JSON array
+    // EFFECTS: returns items in cart as a JSON array
     private JSONArray customersToJson() {
         JSONArray jsonArray = new JSONArray();
 

@@ -74,4 +74,13 @@ public class CustomerCartTest {
         cart.addToCart(new Item("item#3", 3, ""));
         assertEquals(18.00, cart.totalPrice());
     }
+
+    @Test
+    public void getItemsTest() {
+        assertEquals(0, cart.getItems().size());
+        for (int i = 1; i <= 5; i++) {
+            cart.addToCart(new Item("item#" + i, i, ""));
+        }
+        assertEquals(5, cart.getItems().size());
+    }
 }

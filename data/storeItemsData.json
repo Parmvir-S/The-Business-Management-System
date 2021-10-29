@@ -20,7 +20,12 @@
         "description": "fruit"
     },
     {
-        "price": 9,
+        "price": 2,
+        "name": "peach",
+        "description": "fruit"
+    },
+    {
+        "price": 8,
         "name": "mango",
         "description": "fruit"
     }

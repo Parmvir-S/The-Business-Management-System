@@ -1,7 +1,6 @@
 package persistance;
 
 import model.AllCustomers;
-import model.ItemList;
 import org.junit.jupiter.api.Test;
 import persistence.JsonReaderCustomer;
 
@@ -17,6 +16,7 @@ public class JsonReaderCustomerTest {
         JsonReaderCustomer reader = new JsonReaderCustomer("./data/noSuchFile.json");
         try {
             AllCustomers customers = reader.read();
+            assertEquals(0, customers.getTotalNumberOfCustomers());
         } catch (IOException e) {
             // pass
         }
