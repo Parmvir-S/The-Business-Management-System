@@ -82,5 +82,7 @@ public class CustomerCartTest {
             cart.addToCart(new Item("item#" + i, i, ""));
         }
         assertEquals(5, cart.getItems().size());
+        assertEquals("item#1", cart.getItems().get(0).getName());
+        assertEquals(3, cart.getItems().get(2).getPrice());
     }
 }
