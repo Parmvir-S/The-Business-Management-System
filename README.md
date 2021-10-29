@@ -32,7 +32,7 @@ This project is of interest to me because I am surrounded by young entrepreneurs
 - As a user, I want to be able to update existing items/services in the catalogue list
 - As a user, I want to be able to delete items/services in the catalogue list
 - As a user, I want to be able to print a receipt of the customers purchases
-- As a user, I want to be able to view what the total sales to date are, which item/service is the most popular and view how many customers have been serviced to date.
+- As a user, I want to be able to view what the total sales to date are and view how many customers have been serviced to date.
 - As a user, when I select the quit option from the main application menu, I want to be reminded to save my store items list and customer cart items list to file and have the option to do so or not
 - As a user, when I start the application, I want to be given the option to load my store items list and customer cart items list.
 
