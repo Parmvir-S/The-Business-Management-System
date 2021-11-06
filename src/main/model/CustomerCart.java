@@ -1,14 +1,9 @@
 package model;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-import persistence.Writable;
-
-
 import java.util.ArrayList;
 
 //This class represents a customers cart
-public class CustomerCart implements Writable {
+public class CustomerCart  {
     private final ArrayList<Item> cart;
 
     //EFFECTS: creates a new CustomerCart object with no items in it
@@ -61,24 +56,5 @@ public class CustomerCart implements Writable {
             totalPrice += item.getPrice();
         }
         return totalPrice;
-    }
-
-    // EFFECTS: returns this as JSON object
-    @Override
-    public JSONObject toJson() {
-        JSONObject json = new JSONObject();
-        json.put("items", itemsToJson());
-        return json;
-    }
-
-    // EFFECTS: returns items in cart as a JSON array
-    private JSONArray itemsToJson() {
-        JSONArray jsonArray = new JSONArray();
-
-        for (Item i : cart) {
-            jsonArray.put(i.toJson());
-        }
-
-        return jsonArray;
     }
 }

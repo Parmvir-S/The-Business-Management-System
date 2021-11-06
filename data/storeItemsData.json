@@ -5,28 +5,8 @@
         "description": "fruit"
     },
     {
-        "price": 6,
-        "name": "orange",
-        "description": "fruit"
-    },
-    {
-        "price": 7,
-        "name": "grape",
-        "description": "fruit"
-    },
-    {
-        "price": 8,
-        "name": "pear",
-        "description": "fruit"
-    },
-    {
         "price": 2,
-        "name": "peach",
-        "description": "fruit"
-    },
-    {
-        "price": 8,
-        "name": "mango",
+        "name": "orange",
         "description": "fruit"
     }
 ]}

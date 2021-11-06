@@ -11,6 +11,35 @@
         "customerID": 2,
         "name": "ls",
         "email": "",
-        "cart": []
+        "cart": [
+            {
+                "price": 3,
+                "name": "lego",
+                "description": "building blocks"
+            },
+            {
+                "price": 3,
+                "name": "lego",
+                "description": "building blocks"
+            }
+        ]
+    },
+    {
+        "phoneNumber": 0,
+        "customerID": 3,
+        "name": "GS",
+        "email": "",
+        "cart": [
+            {
+                "price": 3,
+                "name": "lego",
+                "description": "building blocks"
+            },
+            {
+                "price": 4,
+                "name": "car",
+                "description": ""
+            }
+        ]
     }
 ]}

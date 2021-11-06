@@ -3,14 +3,14 @@ package persistance;
 import model.AllCustomers;
 import model.Customer;
 import model.CustomerCart;
+import model.Item;
 import org.junit.jupiter.api.Test;
 import persistence.JsonReaderCustomer;
 import persistence.JsonWriterCustomer;
 
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class JsonWriterCustomerTest {
 
@@ -48,7 +48,15 @@ public class JsonWriterCustomerTest {
         try {
             AllCustomers customers = new AllCustomers();
             customers.addCustomer(new Customer(1, "ps", "", 123, new CustomerCart()));
-            customers.addCustomer(new Customer(2, "ls", "", 321, new CustomerCart()));
+            CustomerCart cart = new CustomerCart();
+            Item newItem = new Item("lego", 3.00, "building blocks");
+            cart.addToCart(newItem);
+            customers.addCustomer(new Customer(2, "ls", "", 321, cart));
+            customers.getCustomer("ls").getCart().getItems().add(newItem);
+            customers.addCustomer(new Customer(3,"GS", "", 0, new CustomerCart()));
+            customers.getCustomer("GS").getCart().addToCart(newItem);
+            customers.getCustomer("GS").getCart().addToCart(new Item("car", 4.00, ""));
+
             JsonWriterCustomer writer = new JsonWriterCustomer("./data/testWriterCustomerGeneralCustomerList.json");
             writer.open();
             writer.write(customers);
@@ -56,11 +64,13 @@ public class JsonWriterCustomerTest {
 
             JsonReaderCustomer reader = new JsonReaderCustomer("./data/testWriterCustomerGeneralCustomerList.json");
             customers = reader.read();
-            assertEquals(2, customers.getTotalNumberOfCustomers());
+            assertEquals(3, customers.getTotalNumberOfCustomers());
             assertEquals("ps", customers.getAllCustomers().get(0).getName());
             assertEquals(321, customers.getAllCustomers().get(1).getPhoneNumber());
             assertEquals("", customers.getAllCustomers().get(0).getEmail());
             assertEquals(2, customers.getAllCustomers().get(1).getCustomerID());
+            assertEquals("lego, lego, ", customers.getAllCustomers().get(1).getCart().viewCart());
+            assertEquals(2, customers.getAllCustomers().get(1).getCart().numberOfItemsInCart());
         } catch (IOException e) {
             fail("Exception should not have been thrown");
         }

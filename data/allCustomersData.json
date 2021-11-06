@@ -1,71 +1,31 @@
 {"Customers": [
     {
-        "phoneNumber": 123,
-        "customerID": -766045345,
+        "phoneNumber": 3,
+        "customerID": 819104354,
         "name": "parm",
-        "email": "email",
+        "email": "e",
         "cart": [
             {
                 "price": 3,
                 "name": "apple",
-                "description": "fruit"
-            },
-            {
-                "price": 9,
-                "name": "mango",
                 "description": "fruit"
             },
             {
                 "price": 2,
-                "name": "peach",
-                "description": "fruit"
-            },
-            {
-                "price": 8,
-                "name": "mango",
-                "description": "fruit"
-            }
-        ]
-    },
-    {
-        "phoneNumber": 32,
-        "customerID": 1544467999,
-        "name": "vic",
-        "email": "email2",
-        "cart": [
-            {
-                "price": 6,
                 "name": "orange",
                 "description": "fruit"
-            },
-            {
-                "price": 7,
-                "name": "grape",
-                "description": "fruit"
-            },
-            {
-                "price": 9,
-                "name": "mango",
-                "description": "fruit"
             }
         ]
     },
     {
-        "phoneNumber": 6,
-        "customerID": -47633168,
-        "name": "lebron",
-        "email": "lakers",
-        "cart": [
-            {
-                "price": 3,
-                "name": "apple",
-                "description": "fruit"
-            },
-            {
-                "price": 8,
-                "name": "mango",
-                "description": "fruit"
-            }
-        ]
+        "phoneNumber": 4,
+        "customerID": -1518970518,
+        "name": "gurjot",
+        "email": "g",
+        "cart": [{
+            "price": 2,
+            "name": "orange",
+            "description": "fruit"
+        }]
     }
 ]}
