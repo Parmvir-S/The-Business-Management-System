@@ -22,11 +22,13 @@ public class MainFrame {
 
         appTitleLabel = new JLabel("The Business Management System", SwingConstants.CENTER);
         appTitleLabel.setForeground(Color.BLACK);
+
+
         appTitleLabel.setFont(new Font("Sans-serif", Font.BOLD, 36));
         mainFrame.add(appTitleLabel, BorderLayout.NORTH);
 
-
-//        ImageIcon labelIcon = new ImageIcon(this.getClass().getResource("../../../data/logo.png"));
+//        System.out.println(this.getClass().getResource("images//logo.png"));
+//        ImageIcon labelIcon = new ImageIcon(this.getClass().getResource("../../data/images/logo.png"));
 //        mainFrame.setIconImage(labelIcon.getImage());
         mainMenuPanel = new MainMenuPanel();
         mainFrame.add(mainMenuPanel, BorderLayout.CENTER);

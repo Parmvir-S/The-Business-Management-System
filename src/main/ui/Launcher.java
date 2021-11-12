@@ -10,5 +10,6 @@ public class Launcher {
                 MainFrame mainFrame = new MainFrame();
             }
         });
+
     }
 }
