@@ -2,6 +2,8 @@ package ui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class MainFrame {
 
@@ -20,19 +22,24 @@ public class MainFrame {
         mainFrame.setSize(900, 600);
         mainFrame.setLocationRelativeTo(null);
 
+        URL myURL = null;
+        try {
+            myURL = new URL("file:data/images/logo.png");
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        ImageIcon labelIcon = new ImageIcon(myURL);
+        mainFrame.setIconImage(labelIcon.getImage());
+
+
         appTitleLabel = new JLabel("The Business Management System", SwingConstants.CENTER);
         appTitleLabel.setForeground(Color.BLACK);
-
-
         appTitleLabel.setFont(new Font("Sans-serif", Font.BOLD, 36));
         mainFrame.add(appTitleLabel, BorderLayout.NORTH);
 
-//        System.out.println(this.getClass().getResource("images//logo.png"));
-//        ImageIcon labelIcon = new ImageIcon(this.getClass().getResource("../../data/images/logo.png"));
-//        mainFrame.setIconImage(labelIcon.getImage());
+
         mainMenuPanel = new MainMenuPanel();
         mainFrame.add(mainMenuPanel, BorderLayout.CENTER);
-
 
         mainFrame.setVisible(true);
     }

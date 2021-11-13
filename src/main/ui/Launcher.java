@@ -1,10 +1,10 @@
 package ui;
 
-import java.awt.*;
+import javax.swing.*;
 
 public class Launcher {
     public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
+        SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
                 MainFrame mainFrame = new MainFrame();
