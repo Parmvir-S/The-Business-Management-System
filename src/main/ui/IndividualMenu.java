@@ -6,8 +6,11 @@ import java.awt.*;
 public class IndividualMenu extends JPanel {
 
     private GridBagConstraints gbc = new GridBagConstraints();
+    private MainPanelContainer container;
 
-    public IndividualMenu() {
+
+    public IndividualMenu(MainPanelContainer container) {
+        this.container = container;
         initialize();
     }
 

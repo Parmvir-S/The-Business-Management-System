@@ -13,6 +13,10 @@ public class MainPanelContainer extends JPanel {
     private StoreRemoveItemPanel storeRemoveItemPanel = new StoreRemoveItemPanel(this);
     private StoreItemUpdatePanel storeItemUpdatePanel = new StoreItemUpdatePanel(this);
     private StoreStatsDisplayPanel storeStatsDisplayPanel = new StoreStatsDisplayPanel(this);
+    private AddCustomerPanel addCustomerPanel = new AddCustomerPanel(this);
+    private ViewCustomersPanel viewCustomersPanel = new ViewCustomersPanel(this);
+    private RemoveCustomerPanel removeCustomerPanel = new RemoveCustomerPanel(this);
+    private IndividualMenu individualMenu = new IndividualMenu(this);
     private CardLayout cl = new CardLayout();
     private GridBagConstraints gbc = new GridBagConstraints();
 
@@ -26,6 +30,10 @@ public class MainPanelContainer extends JPanel {
         add(storeRemoveItemPanel, "storeRemoveItem");
         add(storeItemUpdatePanel, "storeItemUpdate");
         add(storeStatsDisplayPanel, "storeStats");
+        add(addCustomerPanel, "addCustomer");
+        add(viewCustomersPanel, "viewCustomers");
+        add(removeCustomerPanel, "removeCustomer");
+        add(individualMenu, "individualMenu");
         cl.show(this, "mainMenu");
 
 

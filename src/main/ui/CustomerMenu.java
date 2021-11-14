@@ -50,6 +50,13 @@ public class CustomerMenu extends JPanel {
         gbc.gridy = 0;
         gbc.gridwidth = 4;
         gbc.fill = GridBagConstraints.HORIZONTAL;
+        addCustomerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cardLayout = (CardLayout) container.getLayout();
+                cardLayout.show(container, "addCustomer");
+            }
+        });
         return addCustomerButton;
     }
 
@@ -58,6 +65,13 @@ public class CustomerMenu extends JPanel {
         viewCustomerButton.setFocusable(false);
         gbc.gridx = 0;
         gbc.gridy = 3;
+        viewCustomerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cardLayout = (CardLayout) container.getLayout();
+                cardLayout.show(container, "viewCustomers");
+            }
+        });
         return viewCustomerButton;
     }
 
@@ -66,15 +80,28 @@ public class CustomerMenu extends JPanel {
         removeCustomerButton.setFocusable(false);
         gbc.gridx = 0;
         gbc.gridy = 5;
+        removeCustomerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cardLayout = (CardLayout) container.getLayout();
+                cardLayout.show(container, "removeCustomer");
+            }
+        });
         return removeCustomerButton;
-
     }
 
     public JButton makeAccessCustomerButton() {
-        JButton accessCustomerButton = new JButton("Store Stats");
+        JButton accessCustomerButton = new JButton("Access Customer");
         accessCustomerButton.setFocusable(false);
         gbc.gridx = 0;
         gbc.gridy = 7;
+        accessCustomerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cardLayout = (CardLayout) container.getLayout();
+                cardLayout.show(container, "individualMenu");
+            }
+        });
         return accessCustomerButton;
     }
 
