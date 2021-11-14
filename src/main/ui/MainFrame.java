@@ -10,6 +10,7 @@ public class MainFrame {
     private JFrame mainFrame;
     private JPanel mainMenuPanel;
     private JLabel appTitleLabel;
+    private MainPanelContainer container;
 
     public MainFrame() {
         initialize();
@@ -38,8 +39,13 @@ public class MainFrame {
         mainFrame.add(appTitleLabel, BorderLayout.NORTH);
 
 
-        mainMenuPanel = new MainMenuPanel();
-        mainFrame.add(mainMenuPanel, BorderLayout.CENTER);
+
+        container = new MainPanelContainer();
+        mainFrame.add(container, BorderLayout.CENTER);
+
+
+//        mainMenuPanel = new MainMenuPanel();
+//        mainFrame.add(mainMenuPanel, BorderLayout.CENTER);
 
         mainFrame.setVisible(true);
     }

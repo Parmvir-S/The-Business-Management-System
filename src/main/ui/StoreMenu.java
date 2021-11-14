@@ -2,14 +2,18 @@ package ui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 public class StoreMenu extends JPanel {
 
     private GridBagConstraints gbc = new GridBagConstraints();
+    private MainPanelContainer container;
 
 
-    public StoreMenu() {
+    public StoreMenu(MainPanelContainer container) {
+        this.container = container;
         initialize();
     }
 
@@ -48,6 +52,13 @@ public class StoreMenu extends JPanel {
         gbc.gridy = 0;
         gbc.gridwidth = 4;
         gbc.fill = GridBagConstraints.HORIZONTAL;
+        storeAddButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cardLayout = (CardLayout) container.getLayout();
+                cardLayout.show(container, "storeAddItem");
+            }
+        });
         return storeAddButton;
     }
 
@@ -56,6 +67,13 @@ public class StoreMenu extends JPanel {
         storeRemoveButton.setFocusable(false);
         gbc.gridx = 0;
         gbc.gridy = 3;
+        storeRemoveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cardLayout = (CardLayout) container.getLayout();
+                cardLayout.show(container, "storeRemoveItem");
+            }
+        });
         return storeRemoveButton;
     }
 
@@ -64,15 +82,28 @@ public class StoreMenu extends JPanel {
         storeUpdateButton.setFocusable(false);
         gbc.gridx = 0;
         gbc.gridy = 5;
+        storeUpdateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cardLayout = (CardLayout) container.getLayout();
+                cardLayout.show(container, "storeItemUpdate");
+            }
+        });
         return storeUpdateButton;
-
     }
 
     public JButton makeStatsButton() {
         JButton storeStatsButton = new JButton("Store Stats");
         storeStatsButton.setFocusable(false);
         gbc.gridx = 0;
-        gbc.gridy = 5;
+        gbc.gridy = 7;
+        storeStatsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cardLayout = (CardLayout) container.getLayout();
+                cardLayout.show(container, "storeStats");
+            }
+        });
         return storeStatsButton;
     }
 
@@ -81,6 +112,14 @@ public class StoreMenu extends JPanel {
         backButton.setFocusable(false);
         gbc.gridx = 0;
         gbc.gridy = 9;
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cardLayout = (CardLayout) container.getLayout();
+                cardLayout.show(container, "mainMenu");
+            }
+        });
+
         return backButton;
     }
 

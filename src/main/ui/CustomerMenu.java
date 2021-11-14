@@ -2,12 +2,16 @@ package ui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class CustomerMenu extends JPanel {
 
     private GridBagConstraints gbc = new GridBagConstraints();
+    private MainPanelContainer container;
 
-    public CustomerMenu() {
+    public CustomerMenu(MainPanelContainer container) {
+        this.container = container;
         initialize();
     }
 
@@ -79,6 +83,13 @@ public class CustomerMenu extends JPanel {
         backButton.setFocusable(false);
         gbc.gridx = 0;
         gbc.gridy = 9;
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cardLayout = (CardLayout) container.getLayout();
+                cardLayout.show(container, "mainMenu");
+            }
+        });
         return backButton;
     }
 

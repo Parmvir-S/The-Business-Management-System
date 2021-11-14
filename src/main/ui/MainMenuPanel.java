@@ -1,7 +1,5 @@
 package ui;
 
-import javafx.scene.layout.Pane;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,16 +8,17 @@ import java.awt.event.ActionListener;
 public class MainMenuPanel extends JPanel {
 
     private GridBagConstraints gbc = new GridBagConstraints();
-    private StoreMenu storeMenu = new StoreMenu();
+    private MainPanelContainer container;
 
-
-    public MainMenuPanel() {
+    public MainMenuPanel(MainPanelContainer container) {
+        this.container = container;
         initialize();
     }
 
     public void initialize() {
 //        setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
 //        setLayout(new GridLayout(4, 3, 15, 25));
+
 
         setLayout(new GridBagLayout());
         gbc.insets = new Insets(10, 10, 10, 10);
@@ -48,6 +47,13 @@ public class MainMenuPanel extends JPanel {
         gbc.gridy = 0;
         gbc.gridwidth = 4;
         gbc.fill = GridBagConstraints.HORIZONTAL;
+        storeMenuButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cardLayout = (CardLayout) container.getLayout();
+                cardLayout.show(container, "storeMenu");
+            }
+        });
         return storeMenuButton;
     }
 
@@ -56,6 +62,13 @@ public class MainMenuPanel extends JPanel {
         customerMenuButton.setFocusable(false);
         gbc.gridx = 0;
         gbc.gridy = 3;
+        customerMenuButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cardLayout = (CardLayout) container.getLayout();
+                cardLayout.show(container, "customerMenu");
+            }
+        });
         return customerMenuButton;
     }
 
