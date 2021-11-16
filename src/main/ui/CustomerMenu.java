@@ -106,7 +106,7 @@ public class CustomerMenu extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CardLayout cardLayout = (CardLayout) container.getLayout();
-                cardLayout.show(container, "individualMenu");
+                cardLayout.show(container, "accessPanel");
             }
         });
         return accessCustomerButton;

@@ -6,6 +6,8 @@ import ui.MainPanelContainer;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class IndividualMenu extends JPanel {
 
@@ -59,6 +61,13 @@ public class IndividualMenu extends JPanel {
         gbc.gridy = 0;
         gbc.gridwidth = 4;
         gbc.fill = GridBagConstraints.HORIZONTAL;
+        itemAddButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cardLayout = (CardLayout) container.getLayout();
+                cardLayout.show(container, "addToCart");
+            }
+        });
         return itemAddButton;
     }
 
@@ -67,6 +76,13 @@ public class IndividualMenu extends JPanel {
         itemRemoveButton.setFocusable(false);
         gbc.gridx = 0;
         gbc.gridy = 3;
+        itemRemoveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cardLayout = (CardLayout) container.getLayout();
+                cardLayout.show(container, "removeFromCart");
+            }
+        });
         return itemRemoveButton;
     }
 
@@ -75,6 +91,13 @@ public class IndividualMenu extends JPanel {
         itemsViewButton.setFocusable(false);
         gbc.gridx = 0;
         gbc.gridy = 5;
+        itemsViewButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cardLayout = (CardLayout) container.getLayout();
+                cardLayout.show(container, "viewItemsInCart");
+            }
+        });
         return itemsViewButton;
 
     }
@@ -84,6 +107,13 @@ public class IndividualMenu extends JPanel {
         itemsTotalButton.setFocusable(false);
         gbc.gridx = 0;
         gbc.gridy = 7;
+        itemsTotalButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cardLayout = (CardLayout) container.getLayout();
+                cardLayout.show(container, "viewCartTotal");
+            }
+        });
         return itemsTotalButton;
     }
 
@@ -92,6 +122,13 @@ public class IndividualMenu extends JPanel {
         displayReceiptButton.setFocusable(false);
         gbc.gridx = 0;
         gbc.gridy = 9;
+        displayReceiptButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cardLayout = (CardLayout) container.getLayout();
+                cardLayout.show(container, "viewReceipt");
+            }
+        });
         return displayReceiptButton;
     }
 
@@ -101,6 +138,13 @@ public class IndividualMenu extends JPanel {
         backButton.setFocusable(false);
         gbc.gridx = 0;
         gbc.gridy = 11;
+        backButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cardLayout = (CardLayout) container.getLayout();
+                cardLayout.show(container, "customerMenu");
+            }
+        });
         return backButton;
     }
 

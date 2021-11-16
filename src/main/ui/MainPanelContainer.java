@@ -6,10 +6,8 @@ import persistence.JsonReader;
 import persistence.JsonReaderCustomer;
 import persistence.JsonWriter;
 import persistence.JsonWriterCustomer;
-import ui.CustomerJPanels.AddCustomerPanel;
-import ui.CustomerJPanels.IndividualMenu;
-import ui.CustomerJPanels.RemoveCustomerPanel;
-import ui.CustomerJPanels.ViewCustomersPanel;
+import ui.CustomerJPanels.*;
+import ui.CustomerJPanels.IndividualCustomerPanels.*;
 import ui.StoreJPanels.*;
 
 import javax.swing.*;
@@ -39,6 +37,12 @@ public class MainPanelContainer extends JPanel {
     private ViewCustomersPanel viewCustomersPanel = new ViewCustomersPanel(this, storeItems, allCustomers);
     private RemoveCustomerPanel removeCustomerPanel = new RemoveCustomerPanel(this, storeItems, allCustomers);
     private IndividualMenu individualMenu = new IndividualMenu(this, storeItems, allCustomers);
+    private AccessCustomerPanel accessCustomerPanel = new AccessCustomerPanel(this, storeItems, allCustomers);
+    private AddItemToCartPanel addItemToCartPanel = new AddItemToCartPanel(this, storeItems, allCustomers);
+    private ReceiptPanel receiptPanel = new ReceiptPanel(this, storeItems, allCustomers);
+    private RemoveItemFromCartPanel removeItemFromCartPanel = new RemoveItemFromCartPanel(this, storeItems, allCustomers);
+    private ViewItemsInCartPanel viewItemsInCartPanel = new ViewItemsInCartPanel(this, storeItems, allCustomers);
+    private ViewTheCartTotalPanel viewTheCartTotalPanel = new ViewTheCartTotalPanel(this, storeItems, allCustomers);
     private CardLayout cl = new CardLayout();
     private GridBagConstraints gbc = new GridBagConstraints();
 
@@ -57,6 +61,12 @@ public class MainPanelContainer extends JPanel {
         add(viewCustomersPanel, "viewCustomers");
         add(removeCustomerPanel, "removeCustomer");
         add(individualMenu, "individualMenu");
+        add(accessCustomerPanel, "accessPanel");
+        add(addItemToCartPanel, "addToCart");
+        add(receiptPanel, "viewReceipt");
+        add(removeItemFromCartPanel, "removeFromCart");
+        add(viewItemsInCartPanel,"viewItemsInCart");
+        add(viewTheCartTotalPanel, "viewCartTotal");
         cl.show(this, "mainMenu");
 
 

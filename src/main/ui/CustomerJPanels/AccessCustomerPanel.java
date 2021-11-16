@@ -1,6 +1,7 @@
 package ui.CustomerJPanels;
 
 import model.AllCustomers;
+import model.Customer;
 import model.ItemList;
 import ui.MainPanelContainer;
 
@@ -9,14 +10,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ViewCustomersPanel extends JPanel {
-
+public class AccessCustomerPanel extends JPanel {
     private MainPanelContainer container;
     private ItemList storeItems;
     private AllCustomers allCustomers;
-    private JLabel viewAllCustomerLabel;
+    private JLabel accessCustomerNameLabel;
+    private JTextField accessCustomerNameTextField;
 
-    public ViewCustomersPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
+    public AccessCustomerPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
         this.storeItems = storeItems;
         this.allCustomers = allCustomers;
         this.container = container;
@@ -26,26 +27,34 @@ public class ViewCustomersPanel extends JPanel {
     public void initialize() {
         setBackground(Color.cyan);
 
-        viewAllCustomerLabel = new JLabel();
-        add(viewAllCustomerLabel);
+        accessCustomerNameLabel = new JLabel("Customer Name:");
+        accessCustomerNameTextField = new JTextField(20);
 
-        JButton viewAllCustomersButton = makeViewAllCustomersButton();
-        add(viewAllCustomersButton);
+        add(accessCustomerNameLabel);
+        add(accessCustomerNameTextField);
+
+        JButton accessButton = makeAccessButton();
+        add(accessButton);
 
         JButton goBackButton = makeGoBackButton();
         add(goBackButton);
     }
 
-    public JButton makeViewAllCustomersButton() {
-        JButton viewAllCustomersButton = new JButton("View All Customers");
-        viewAllCustomersButton.addActionListener(new ActionListener() {
+    public JButton makeAccessButton() {
+        JButton accessButton = new JButton("Access");
+        accessButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String allCustomerNames = allCustomers.allCustomerNames();
-                viewAllCustomerLabel.setText(allCustomerNames);
+                String name = accessCustomerNameTextField.getText();
+                for (Customer customer : allCustomers.getAllCustomers()) {
+                    if (customer.getName().equals(name)) {
+                        CardLayout cardLayout = (CardLayout) container.getLayout();
+                        cardLayout.show(container, "individualMenu");
+                    }
+                }
             }
         });
-        return viewAllCustomersButton;
+        return accessButton;
     }
 
     public JButton makeGoBackButton() {
