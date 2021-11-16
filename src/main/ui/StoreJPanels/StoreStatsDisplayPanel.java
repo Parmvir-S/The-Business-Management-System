@@ -1,15 +1,23 @@
-package ui;
+package ui.StoreJPanels;
+
+import model.AllCustomers;
+import model.ItemList;
+import ui.MainPanelContainer;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class StoreAddItemPanel extends JPanel {
+public class StoreStatsDisplayPanel extends JPanel {
 
     private MainPanelContainer container;
+    private ItemList storeItems;
+    private AllCustomers allCustomers;
 
-    public StoreAddItemPanel(MainPanelContainer container) {
+    public StoreStatsDisplayPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
+        this.storeItems = storeItems;
+        this.allCustomers = allCustomers;
         this.container = container;
         initialize();
     }

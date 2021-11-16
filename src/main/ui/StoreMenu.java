@@ -1,5 +1,8 @@
 package ui;
 
+import model.AllCustomers;
+import model.ItemList;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,9 +13,12 @@ public class StoreMenu extends JPanel {
 
     private GridBagConstraints gbc = new GridBagConstraints();
     private MainPanelContainer container;
+    private ItemList storeItems;
+    private AllCustomers allCustomers;
 
-
-    public StoreMenu(MainPanelContainer container) {
+    public StoreMenu(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
+        this.storeItems = storeItems;
+        this.allCustomers = allCustomers;
         this.container = container;
         initialize();
     }

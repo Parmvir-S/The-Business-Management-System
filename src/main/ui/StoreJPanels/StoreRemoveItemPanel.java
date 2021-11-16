@@ -1,15 +1,23 @@
-package ui;
+package ui.StoreJPanels;
+
+import model.AllCustomers;
+import model.ItemList;
+import ui.MainPanelContainer;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class StoreStatsDisplayPanel extends JPanel {
+public class StoreRemoveItemPanel extends JPanel {
 
     private MainPanelContainer container;
+    private ItemList storeItems;
+    private AllCustomers allCustomers;
 
-    public StoreStatsDisplayPanel(MainPanelContainer container) {
+    public StoreRemoveItemPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
+        this.storeItems = storeItems;
+        this.allCustomers = allCustomers;
         this.container = container;
         initialize();
     }
@@ -28,4 +36,5 @@ public class StoreStatsDisplayPanel extends JPanel {
 
         add(button);
     }
+
 }

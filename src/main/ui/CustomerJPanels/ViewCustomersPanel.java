@@ -1,15 +1,23 @@
-package ui;
+package ui.CustomerJPanels;
+
+import model.AllCustomers;
+import model.ItemList;
+import ui.MainPanelContainer;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class RemoveCustomerPanel extends JPanel {
+public class ViewCustomersPanel extends JPanel {
 
     private MainPanelContainer container;
+    private ItemList storeItems;
+    private AllCustomers allCustomers;
 
-    public RemoveCustomerPanel(MainPanelContainer container) {
+    public ViewCustomersPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
+        this.storeItems = storeItems;
+        this.allCustomers = allCustomers;
         this.container = container;
         initialize();
     }
@@ -28,5 +36,4 @@ public class RemoveCustomerPanel extends JPanel {
 
         add(button);
     }
-
 }

@@ -1,4 +1,8 @@
-package ui;
+package ui.CustomerJPanels;
+
+import model.AllCustomers;
+import model.ItemList;
+import ui.MainPanelContainer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -7,9 +11,13 @@ public class IndividualMenu extends JPanel {
 
     private GridBagConstraints gbc = new GridBagConstraints();
     private MainPanelContainer container;
+    private ItemList storeItems;
+    private AllCustomers allCustomers;
 
 
-    public IndividualMenu(MainPanelContainer container) {
+    public IndividualMenu(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
+        this.storeItems = storeItems;
+        this.allCustomers = allCustomers;
         this.container = container;
         initialize();
     }

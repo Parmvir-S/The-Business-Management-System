@@ -1,15 +1,23 @@
-package ui;
+package ui.CustomerJPanels;
+
+import model.AllCustomers;
+import model.ItemList;
+import ui.MainPanelContainer;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class StoreItemUpdatePanel extends JPanel {
+public class AddCustomerPanel extends JPanel {
 
     private MainPanelContainer container;
+    private ItemList storeItems;
+    private AllCustomers allCustomers;
 
-    public StoreItemUpdatePanel(MainPanelContainer container) {
+    public AddCustomerPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
+        this.storeItems = storeItems;
+        this.allCustomers = allCustomers;
         this.container = container;
         initialize();
     }
@@ -22,7 +30,7 @@ public class StoreItemUpdatePanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CardLayout cardLayout = (CardLayout) container.getLayout();
-                cardLayout.show(container, "storeMenu");
+                cardLayout.show(container, "customerMenu");
             }
         });
 
