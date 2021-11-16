@@ -41,6 +41,9 @@ public class StoreMenu extends JPanel {
         JButton storeStatsButton = makeStatsButton();
         add(storeStatsButton, gbc);
 
+        JButton storeViewItems = makeViewItemsButton();
+        add(storeViewItems, gbc);
+
         JButton backButton = makeBackButton();
         add(backButton, gbc);
 
@@ -113,11 +116,26 @@ public class StoreMenu extends JPanel {
         return storeStatsButton;
     }
 
+    public JButton makeViewItemsButton() {
+        JButton storeViewItems = new JButton("View Items");
+        storeViewItems.setFocusable(false);
+        gbc.gridx = 0;
+        gbc.gridy = 9;
+        storeViewItems.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cardLayout = (CardLayout) container.getLayout();
+                cardLayout.show(container, "viewItems");
+            }
+        });
+        return storeViewItems;
+    }
+
     public JButton makeBackButton() {
         JButton backButton = new JButton("Go Back");
         backButton.setFocusable(false);
         gbc.gridx = 0;
-        gbc.gridy = 9;
+        gbc.gridy = 11;
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

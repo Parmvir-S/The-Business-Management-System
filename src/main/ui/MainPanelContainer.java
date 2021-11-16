@@ -10,10 +10,7 @@ import ui.CustomerJPanels.AddCustomerPanel;
 import ui.CustomerJPanels.IndividualMenu;
 import ui.CustomerJPanels.RemoveCustomerPanel;
 import ui.CustomerJPanels.ViewCustomersPanel;
-import ui.StoreJPanels.StoreAddItemPanel;
-import ui.StoreJPanels.StoreItemUpdatePanel;
-import ui.StoreJPanels.StoreRemoveItemPanel;
-import ui.StoreJPanels.StoreStatsDisplayPanel;
+import ui.StoreJPanels.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -37,6 +34,7 @@ public class MainPanelContainer extends JPanel {
     private StoreRemoveItemPanel storeRemoveItemPanel = new StoreRemoveItemPanel(this, storeItems, allCustomers);
     private StoreItemUpdatePanel storeItemUpdatePanel = new StoreItemUpdatePanel(this, storeItems, allCustomers);
     private StoreStatsDisplayPanel storeStatsDisplayPanel = new StoreStatsDisplayPanel(this, storeItems, allCustomers);
+    private StoreViewItemsPanel storeViewItemsPanel = new StoreViewItemsPanel(this, storeItems, allCustomers);
     private AddCustomerPanel addCustomerPanel = new AddCustomerPanel(this, storeItems, allCustomers);
     private ViewCustomersPanel viewCustomersPanel = new ViewCustomersPanel(this, storeItems, allCustomers);
     private RemoveCustomerPanel removeCustomerPanel = new RemoveCustomerPanel(this, storeItems, allCustomers);
@@ -53,6 +51,7 @@ public class MainPanelContainer extends JPanel {
         add(storeAddItemPanel, "storeAddItem");
         add(storeRemoveItemPanel, "storeRemoveItem");
         add(storeItemUpdatePanel, "storeItemUpdate");
+        add(storeViewItemsPanel, "viewItems");
         add(storeStatsDisplayPanel, "storeStats");
         add(addCustomerPanel, "addCustomer");
         add(viewCustomersPanel, "viewCustomers");
