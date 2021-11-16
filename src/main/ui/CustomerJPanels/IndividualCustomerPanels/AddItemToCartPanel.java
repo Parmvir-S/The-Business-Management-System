@@ -2,6 +2,7 @@ package ui.CustomerJPanels.IndividualCustomerPanels;
 
 import model.AllCustomers;
 import model.ItemList;
+import ui.CustomerJPanels.AccessCustomerPanel;
 import ui.MainPanelContainer;
 
 import javax.swing.*;
@@ -14,7 +15,6 @@ public class AddItemToCartPanel extends JPanel {
     private MainPanelContainer container;
     private ItemList storeItems;
     private AllCustomers allCustomers;
-
 
     public AddItemToCartPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
         this.storeItems = storeItems;
