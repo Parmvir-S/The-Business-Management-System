@@ -12,6 +12,10 @@ import ui.StoreJPanels.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 
 public class MainPanelContainer extends JPanel {
@@ -23,7 +27,6 @@ public class MainPanelContainer extends JPanel {
     JsonReader jsonReader = new JsonReader(JSON_STORE_ITEMS);
     JsonWriterCustomer jsonWriterCustomer = new JsonWriterCustomer(JSON_STORE_CUSTOMERS);
     JsonReaderCustomer jsonReaderCustomer = new JsonReaderCustomer(JSON_STORE_CUSTOMERS);
-    //maybe make the save and load buttons here and then add to mainmenupanel
 
     private MainMenuPanel mainMenu = new MainMenuPanel(this, storeItems, allCustomers);
     private StoreMenu storeMenu = new StoreMenu(this, storeItems, allCustomers);
@@ -38,18 +41,23 @@ public class MainPanelContainer extends JPanel {
     private RemoveCustomerPanel removeCustomerPanel = new RemoveCustomerPanel(this, storeItems, allCustomers);
     private IndividualMenu individualMenu = new IndividualMenu(this, storeItems, allCustomers);
     private AccessCustomerPanel accessCustomerPanel = new AccessCustomerPanel(this, storeItems, allCustomers);
-    private AddItemToCartPanel addItemToCartPanel = new AddItemToCartPanel(this, storeItems, allCustomers);
-    private ReceiptPanel receiptPanel = new ReceiptPanel(this, storeItems, allCustomers);
-    private RemoveItemFromCartPanel removeItemFromCartPanel = new RemoveItemFromCartPanel(this, storeItems, allCustomers);
-    private ViewItemsInCartPanel viewItemsInCartPanel = new ViewItemsInCartPanel(this, storeItems, allCustomers);
-    private ViewTheCartTotalPanel viewTheCartTotalPanel = new ViewTheCartTotalPanel(this, storeItems, allCustomers);
+    private AddItemToCartPanel addItemToCartPanel = new AddItemToCartPanel(this, storeItems, allCustomers, accessCustomerPanel);
+    private ReceiptPanel receiptPanel = new ReceiptPanel(this, storeItems, allCustomers, accessCustomerPanel);
+    private RemoveItemFromCartPanel removeItemFromCartPanel = new RemoveItemFromCartPanel(this, storeItems, allCustomers, accessCustomerPanel);
+    private ViewItemsInCartPanel viewItemsInCartPanel = new ViewItemsInCartPanel(this, storeItems, allCustomers, accessCustomerPanel);
+    private ViewTheCartTotalPanel viewTheCartTotalPanel = new ViewTheCartTotalPanel(this, storeItems, allCustomers, accessCustomerPanel);
     private CardLayout cl = new CardLayout();
     private GridBagConstraints gbc = new GridBagConstraints();
 
     public MainPanelContainer() {
         setLayout(cl);
+        gbc.insets = new Insets(10, 10, 10, 10);
 
         add(mainMenu, "mainMenu");
+
+        mainMenu.add(makeSaveButton(), gbc);
+        mainMenu.add(makeLoadButton(), gbc);
+
         add(storeMenu, "storeMenu");
         add(customerMenu, "customerMenu");
         add(storeAddItemPanel, "storeAddItem");
@@ -68,7 +76,52 @@ public class MainPanelContainer extends JPanel {
         add(viewItemsInCartPanel,"viewItemsInCart");
         add(viewTheCartTotalPanel, "viewCartTotal");
         cl.show(this, "mainMenu");
+    }
 
+    public JButton makeSaveButton() {
+        JButton saveButton = new JButton("Save");
+        saveButton.setFocusable(false);
+        gbc.gridx = 0;
+        gbc.gridy = 5;
+        gbc.gridwidth = 4;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        saveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    jsonWriter.open();
+                    jsonWriter.write(storeItems);
+                    jsonWriter.close();
 
+                    jsonWriterCustomer.open();
+                    jsonWriterCustomer.write(allCustomers);
+                    jsonWriterCustomer.close();
+                    System.out.println("Store Data Was Saved To " + JSON_STORE_ITEMS + " and " + JSON_STORE_CUSTOMERS);
+                } catch (FileNotFoundException error) {
+                    System.out.println("Unable to write to file: " + JSON_STORE_ITEMS + " or " + JSON_STORE_CUSTOMERS);
+                }
+            }
+        });
+        return saveButton;
+    }
+
+    public JButton makeLoadButton() {
+        JButton loadButton = new JButton("Load");
+        loadButton.setFocusable(false);
+        gbc.gridx = 0;
+        gbc.gridy = 7;
+        loadButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    storeItems = jsonReader.read();
+                    allCustomers = jsonReaderCustomer.read();
+                    System.out.println("Loaded from " + JSON_STORE_ITEMS + " and " + JSON_STORE_CUSTOMERS);
+                } catch (IOException error) {
+                    System.out.println("Unable to read from file: " + JSON_STORE_ITEMS + " or " + JSON_STORE_CUSTOMERS);
+                }
+            }
+        });
+        return loadButton;
     }
 }

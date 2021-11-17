@@ -16,6 +16,7 @@ public class AccessCustomerPanel extends JPanel {
     private AllCustomers allCustomers;
     private JLabel accessCustomerNameLabel;
     private JTextField accessCustomerNameTextField;
+    private String userName;
 
     public AccessCustomerPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
         this.storeItems = storeItems;
@@ -48,6 +49,7 @@ public class AccessCustomerPanel extends JPanel {
                 String name = accessCustomerNameTextField.getText();
                 for (Customer customer : allCustomers.getAllCustomers()) {
                     if (customer.getName().equals(name)) {
+                        userName = name;
                         CardLayout cardLayout = (CardLayout) container.getLayout();
                         cardLayout.show(container, "individualMenu");
                     }
@@ -57,6 +59,9 @@ public class AccessCustomerPanel extends JPanel {
         return accessButton;
     }
 
+    public String getUserName() {
+        return this.userName;
+    }
 
     public JButton makeGoBackButton() {
         JButton goBackButton = new JButton("Go Back");

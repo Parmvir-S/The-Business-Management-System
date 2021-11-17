@@ -1,31 +1,23 @@
-{"Customers": [
-    {
-        "phoneNumber": 3,
-        "customerID": 819104354,
-        "name": "parm",
-        "email": "e",
-        "cart": [
-            {
-                "price": 3,
-                "name": "apple",
-                "description": "fruit"
-            },
-            {
-                "price": 2,
-                "name": "orange",
-                "description": "fruit"
-            }
-        ]
-    },
-    {
-        "phoneNumber": 4,
-        "customerID": -1518970518,
-        "name": "gurjot",
-        "email": "g",
-        "cart": [{
-            "price": 2,
-            "name": "orange",
+{"Customers": [{
+    "phoneNumber": 33,
+    "customerID": 1600910260,
+    "name": "parm",
+    "email": "dd",
+    "cart": [
+        {
+            "price": 34,
+            "name": "dragon fruit",
             "description": "fruit"
-        }]
-    }
-]}
+        },
+        {
+            "price": 21,
+            "name": "apple",
+            "description": "fruit"
+        },
+        {
+            "price": 2,
+            "name": "juice",
+            "description": "fruit juice"
+        }
+    ]
+}]}

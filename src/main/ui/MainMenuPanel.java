@@ -38,11 +38,11 @@ public class MainMenuPanel extends JPanel {
         add(customerMenuButton, gbc);
 
 
-        JButton saveButton = makeSaveButton();
-        add(saveButton, gbc);
+//        JButton saveButton = makeSaveButton();
+//        add(saveButton, gbc);
 
-        JButton loadButton = makeLoadButton();
-        add(loadButton, gbc);
+//        JButton loadButton = makeLoadButton();
+//        add(loadButton, gbc);
 
         makeVisible();
     }
