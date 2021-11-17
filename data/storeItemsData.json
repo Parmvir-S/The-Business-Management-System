@@ -1,17 +1,27 @@
 {"Store Items": [
     {
-        "price": 21,
+        "price": 3,
         "name": "apple",
         "description": "fruit"
     },
     {
-        "price": 34,
-        "name": "dragon fruit",
+        "price": 4,
+        "name": "orange",
         "description": "fruit"
     },
     {
+        "price": 4,
+        "name": "blt",
+        "description": "sandwich"
+    },
+    {
         "price": 2,
-        "name": "juice",
-        "description": "fruit juice"
+        "name": "junior chicken",
+        "description": "sandwich"
+    },
+    {
+        "price": 44,
+        "name": "banana",
+        "description": "fruit"
     }
 ]}

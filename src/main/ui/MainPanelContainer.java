@@ -116,6 +116,8 @@ public class MainPanelContainer extends JPanel {
                 try {
                     storeItems = jsonReader.read();
                     allCustomers = jsonReaderCustomer.read();
+                    updatePanels();
+                    reAddToPanel();
                     System.out.println("Loaded from " + JSON_STORE_ITEMS + " and " + JSON_STORE_CUSTOMERS);
                 } catch (IOException error) {
                     System.out.println("Unable to read from file: " + JSON_STORE_ITEMS + " or " + JSON_STORE_CUSTOMERS);
@@ -123,5 +125,52 @@ public class MainPanelContainer extends JPanel {
             }
         });
         return loadButton;
+    }
+
+    public void updatePanels() {
+        mainMenu = new MainMenuPanel(MainPanelContainer.this, storeItems, allCustomers);
+        storeMenu = new StoreMenu(MainPanelContainer.this, storeItems, allCustomers);
+        customerMenu = new CustomerMenu(MainPanelContainer.this, storeItems, allCustomers);
+        storeAddItemPanel = new StoreAddItemPanel(MainPanelContainer.this, storeItems, allCustomers);
+        storeRemoveItemPanel = new StoreRemoveItemPanel(MainPanelContainer.this, storeItems, allCustomers);
+        storeItemUpdatePanel = new StoreItemUpdatePanel(MainPanelContainer.this, storeItems, allCustomers);
+        storeStatsDisplayPanel = new StoreStatsDisplayPanel(MainPanelContainer.this, storeItems, allCustomers);
+        storeViewItemsPanel = new StoreViewItemsPanel(MainPanelContainer.this, storeItems, allCustomers);
+        addCustomerPanel = new AddCustomerPanel(MainPanelContainer.this, storeItems, allCustomers);
+        viewCustomersPanel = new ViewCustomersPanel(MainPanelContainer.this, storeItems, allCustomers);
+        removeCustomerPanel = new RemoveCustomerPanel(MainPanelContainer.this, storeItems, allCustomers);
+        individualMenu = new IndividualMenu(MainPanelContainer.this, storeItems, allCustomers);
+        accessCustomerPanel = new AccessCustomerPanel(MainPanelContainer.this, storeItems, allCustomers);
+        addItemToCartPanel = new AddItemToCartPanel(MainPanelContainer.this, storeItems, allCustomers, accessCustomerPanel);
+        receiptPanel = new ReceiptPanel(MainPanelContainer.this, storeItems, allCustomers, accessCustomerPanel);
+        removeItemFromCartPanel = new RemoveItemFromCartPanel(MainPanelContainer.this, storeItems, allCustomers, accessCustomerPanel);
+        viewItemsInCartPanel = new ViewItemsInCartPanel(MainPanelContainer.this, storeItems, allCustomers, accessCustomerPanel);
+        viewTheCartTotalPanel = new ViewTheCartTotalPanel(MainPanelContainer.this, storeItems, allCustomers, accessCustomerPanel);
+    }
+
+    public void reAddToPanel() {
+        add(mainMenu, "mainMenu");
+
+        mainMenu.add(makeSaveButton(), gbc);
+        mainMenu.add(makeLoadButton(), gbc);
+
+        add(storeMenu, "storeMenu");
+        add(customerMenu, "customerMenu");
+        add(storeAddItemPanel, "storeAddItem");
+        add(storeRemoveItemPanel, "storeRemoveItem");
+        add(storeItemUpdatePanel, "storeItemUpdate");
+        add(storeViewItemsPanel, "viewItems");
+        add(storeStatsDisplayPanel, "storeStats");
+        add(addCustomerPanel, "addCustomer");
+        add(viewCustomersPanel, "viewCustomers");
+        add(removeCustomerPanel, "removeCustomer");
+        add(individualMenu, "individualMenu");
+        add(accessCustomerPanel, "accessPanel");
+        add(addItemToCartPanel, "addToCart");
+        add(receiptPanel, "viewReceipt");
+        add(removeItemFromCartPanel, "removeFromCart");
+        add(viewItemsInCartPanel,"viewItemsInCart");
+        add(viewTheCartTotalPanel, "viewCartTotal");
+        cl.show(MainPanelContainer.this, "mainMenu");
     }
 }

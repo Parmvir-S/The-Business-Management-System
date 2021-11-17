@@ -1,23 +1,23 @@
 {"Customers": [{
-    "phoneNumber": 33,
-    "customerID": 1600910260,
+    "phoneNumber": 323,
+    "customerID": -341916762,
     "name": "parm",
-    "email": "dd",
+    "email": "dsfs",
     "cart": [
         {
-            "price": 34,
-            "name": "dragon fruit",
-            "description": "fruit"
-        },
-        {
-            "price": 21,
+            "price": 3,
             "name": "apple",
             "description": "fruit"
         },
         {
             "price": 2,
-            "name": "juice",
-            "description": "fruit juice"
+            "name": "junior chicken",
+            "description": "sandwich"
+        },
+        {
+            "price": 44,
+            "name": "banana",
+            "description": "fruit"
         }
     ]
 }]}
