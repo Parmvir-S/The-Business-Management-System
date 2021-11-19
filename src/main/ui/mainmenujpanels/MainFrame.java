@@ -26,22 +26,33 @@ public class MainFrame {
         mainFrame.setLocationRelativeTo(null);
 
         URL myURL = null;
+        URL mySmallLogo = null;
         try {
             myURL = new URL("file:data/images/logo.png");
+            mySmallLogo = new URL("file:data/images/smallLogo.png");
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
         ImageIcon labelIcon = new ImageIcon(myURL);
         mainFrame.setIconImage(labelIcon.getImage());
 
-        appTitleLabel = new JLabel("The Business Management System", SwingConstants.CENTER);
-        appTitleLabel.setForeground(Color.BLACK);
-        appTitleLabel.setFont(new Font("Sans-serif", Font.BOLD, 36));
+        appTitleLabel = createLogo();
+
+        ImageIcon logoIcon = new ImageIcon(mySmallLogo);
+        appTitleLabel.setIcon(logoIcon);
         mainFrame.add(appTitleLabel, BorderLayout.NORTH);
 
         container = new MainPanelContainer();
         mainFrame.add(container, BorderLayout.CENTER);
 
         mainFrame.setVisible(true);
+    }
+
+    //EFFECTS: creates the logo/title
+    public JLabel createLogo() {
+        JLabel appTitleLabel = new JLabel("The Business Management System", SwingConstants.CENTER);
+        appTitleLabel.setForeground(Color.BLACK);
+        appTitleLabel.setFont(new Font("Sans-serif", Font.BOLD, 36));
+        return appTitleLabel;
     }
 }
