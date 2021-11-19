@@ -2,13 +2,14 @@ package ui.StoreJPanels;
 
 import model.AllCustomers;
 import model.ItemList;
-import ui.MainPanelContainer;
+import ui.MainMenuJPanels.MainPanelContainer;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+//This class allows the user to remove items from the store
 public class StoreRemoveItemPanel extends JPanel {
 
     private MainPanelContainer container;
@@ -17,6 +18,7 @@ public class StoreRemoveItemPanel extends JPanel {
     private JLabel itemToRemoveNameLabel;
     private JTextField itemToRemoveNameTextField;
 
+    //EFFECTS: creates a new instance of the StoreRemoveItemPanel class
     public StoreRemoveItemPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
         this.storeItems = storeItems;
         this.allCustomers = allCustomers;
@@ -24,6 +26,7 @@ public class StoreRemoveItemPanel extends JPanel {
         initialize();
     }
 
+    //EFFECTS: initializes this JPanel
     public void initialize() {
         setBackground(Color.cyan);
 
@@ -40,6 +43,8 @@ public class StoreRemoveItemPanel extends JPanel {
         add(goBackButton);
     }
 
+    //MODIFIES: this
+    //EFFECTS: creates a button that when clicked removes an item in the store with the entered name
     public JButton makeRemoveItemButton() {
         JButton removeItemButton = new JButton("Remove");
         removeItemButton.addActionListener(new ActionListener() {
@@ -52,6 +57,7 @@ public class StoreRemoveItemPanel extends JPanel {
         return removeItemButton;
     }
 
+    //EFFECTS: creates a button that when clicked takes the user back to the store menu
     public JButton makeGoBackButton() {
         JButton goBackButton = new JButton("Go Back");
         goBackButton.addActionListener(new ActionListener() {

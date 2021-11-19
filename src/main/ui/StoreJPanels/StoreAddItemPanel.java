@@ -3,13 +3,14 @@ package ui.StoreJPanels;
 import model.AllCustomers;
 import model.Item;
 import model.ItemList;
-import ui.MainPanelContainer;
+import ui.MainMenuJPanels.MainPanelContainer;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+//This class allows the user to add items to the store
 public class StoreAddItemPanel extends JPanel {
 
     private MainPanelContainer container;
@@ -22,6 +23,7 @@ public class StoreAddItemPanel extends JPanel {
     private ItemList storeItems;
     private AllCustomers allCustomers;
 
+    //EFFECTS: creates a new instance of the StoreAddItemPanel class
     public StoreAddItemPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
         this.storeItems = storeItems;
         this.allCustomers = allCustomers;
@@ -29,6 +31,7 @@ public class StoreAddItemPanel extends JPanel {
         initialize();
     }
 
+    //EFFECTS: initializes this JPanel
     public void initialize() {
         setBackground(Color.cyan);
 
@@ -52,6 +55,8 @@ public class StoreAddItemPanel extends JPanel {
         add(goBackButton);
     }
 
+    //MODIFIES: this
+    //Creates a button that when clicked, takes the JTextField values to create a new item and add then add it to store
     public JButton makeAddItemToStoreButton() {
         JButton addItemToStoreButton = new JButton("Add Item");
         addItemToStoreButton.addActionListener(new ActionListener() {
@@ -67,6 +72,7 @@ public class StoreAddItemPanel extends JPanel {
         return addItemToStoreButton;
     }
 
+    //EFFECTS: creates a button that when clicked takes the user back to the store menu
     public JButton makeGoBackButton() {
         JButton goBackButton = new JButton("Go Back");
         goBackButton.addActionListener(new ActionListener() {

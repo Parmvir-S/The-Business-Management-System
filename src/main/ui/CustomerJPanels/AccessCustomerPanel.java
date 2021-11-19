@@ -3,13 +3,14 @@ package ui.CustomerJPanels;
 import model.AllCustomers;
 import model.Customer;
 import model.ItemList;
-import ui.MainPanelContainer;
+import ui.MainMenuJPanels.MainPanelContainer;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+//This displays the panel that allows the user to access a specific customer
 public class AccessCustomerPanel extends JPanel {
     private MainPanelContainer container;
     private ItemList storeItems;
@@ -18,6 +19,7 @@ public class AccessCustomerPanel extends JPanel {
     private JTextField accessCustomerNameTextField;
     private String userName;
 
+    //EFFECTS: creates a new instance of the AccessCustomerPanel class
     public AccessCustomerPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
         this.storeItems = storeItems;
         this.allCustomers = allCustomers;
@@ -25,6 +27,7 @@ public class AccessCustomerPanel extends JPanel {
         initialize();
     }
 
+    //EFFECTS: this initializes the JPanel
     public void initialize() {
         setBackground(Color.cyan);
 
@@ -41,6 +44,8 @@ public class AccessCustomerPanel extends JPanel {
         add(goBackButton);
     }
 
+    //EFFECTS: creates a button that when clicked, checks if the name is in the customers list. If true
+    //         redirects the user to that customers individual menu panel. If false, then it doesn't redirect
     public JButton makeAccessButton() {
         JButton accessButton = new JButton("Access");
         accessButton.addActionListener(new ActionListener() {
@@ -59,10 +64,12 @@ public class AccessCustomerPanel extends JPanel {
         return accessButton;
     }
 
+    //EFFECTS: return the entered customer name
     public String getUserName() {
         return this.userName;
     }
 
+    //Creates a button that when clicked redirects the user to the customer menu panel
     public JButton makeGoBackButton() {
         JButton goBackButton = new JButton("Go Back");
         goBackButton.addActionListener(new ActionListener() {

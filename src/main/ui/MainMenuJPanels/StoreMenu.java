@@ -1,4 +1,4 @@
-package ui;
+package ui.MainMenuJPanels;
 
 import model.AllCustomers;
 import model.ItemList;
@@ -8,7 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
+//This class displays the store menu
 public class StoreMenu extends JPanel {
 
     private GridBagConstraints gbc = new GridBagConstraints();
@@ -16,6 +16,7 @@ public class StoreMenu extends JPanel {
     private ItemList storeItems;
     private AllCustomers allCustomers;
 
+    //EFFECTS: creates a new instance of the StoreMenu class
     public StoreMenu(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
         this.storeItems = storeItems;
         this.allCustomers = allCustomers;
@@ -23,6 +24,7 @@ public class StoreMenu extends JPanel {
         initialize();
     }
 
+    //EFFECTS: initializes the JPanel
     public void initialize() {
         setLayout(new GridBagLayout());
         gbc.insets = new Insets(10, 10, 10, 10);
@@ -33,7 +35,6 @@ public class StoreMenu extends JPanel {
 
         JButton storeRemoveButton = makeRemoveButton();
         add(storeRemoveButton, gbc);
-
 
         JButton storeUpdateButton = makeUpdateButton();
         add(storeUpdateButton, gbc);
@@ -50,10 +51,13 @@ public class StoreMenu extends JPanel {
         makeVisible();
     }
 
+    //MODIFIES: this
+    //EFFECTS: sets the visibility status of this JPanel to true
     public void makeVisible() {
         this.setVisible(true);
     }
 
+    //EFFECTS: creates a button that redirects user to the storeAddItem panel
     public JButton makeAddButton() {
         JButton storeAddButton = new JButton("Add Item");
         storeAddButton.setFocusable(false);
@@ -71,6 +75,7 @@ public class StoreMenu extends JPanel {
         return storeAddButton;
     }
 
+    //EFFECTS: creates a button that redirects user to the storeRemoveItem panel
     public JButton makeRemoveButton() {
         JButton storeRemoveButton = new JButton("Remove Item");
         storeRemoveButton.setFocusable(false);
@@ -86,6 +91,7 @@ public class StoreMenu extends JPanel {
         return storeRemoveButton;
     }
 
+    //EFFECTS: creates a button that redirects user to the storeItemUpdate panel
     public JButton makeUpdateButton() {
         JButton storeUpdateButton = new JButton("Update Item");
         storeUpdateButton.setFocusable(false);
@@ -101,6 +107,7 @@ public class StoreMenu extends JPanel {
         return storeUpdateButton;
     }
 
+    //EFFECTS: creates a button that redirects user to the storeStats panel
     public JButton makeStatsButton() {
         JButton storeStatsButton = new JButton("Store Stats");
         storeStatsButton.setFocusable(false);
@@ -116,6 +123,7 @@ public class StoreMenu extends JPanel {
         return storeStatsButton;
     }
 
+    //EFFECTS: creates a button that redirects user to the viewItems panel
     public JButton makeViewItemsButton() {
         JButton storeViewItems = new JButton("View Items");
         storeViewItems.setFocusable(false);
@@ -131,6 +139,7 @@ public class StoreMenu extends JPanel {
         return storeViewItems;
     }
 
+    //EFFECTS: creates a button that redirects user to the main menu panel
     public JButton makeBackButton() {
         JButton backButton = new JButton("Go Back");
         backButton.setFocusable(false);

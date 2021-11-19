@@ -1,4 +1,4 @@
-package ui;
+package ui.MainMenuJPanels;
 
 import model.AllCustomers;
 import model.ItemList;
@@ -17,7 +17,7 @@ import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-
+//This is a container class for all the JPanels used in the CardLayout for this application
 public class MainPanelContainer extends JPanel {
     private static final String JSON_STORE_ITEMS = "./data/storeItemsData.json";
     private static final String JSON_STORE_CUSTOMERS = "./data/allCustomersData.json";
@@ -49,6 +49,7 @@ public class MainPanelContainer extends JPanel {
     private CardLayout cl = new CardLayout();
     private GridBagConstraints gbc = new GridBagConstraints();
 
+    //EFFECTS: generates a new object of type MainPanelContainer
     public MainPanelContainer() {
         setLayout(cl);
         gbc.insets = new Insets(10, 10, 10, 10);
@@ -78,6 +79,7 @@ public class MainPanelContainer extends JPanel {
         cl.show(this, "mainMenu");
     }
 
+    //EFFECTS: creates a button that when clicked saves the store/customer data to file
     public JButton makeSaveButton() {
         JButton saveButton = new JButton("Save");
         saveButton.setFocusable(false);
@@ -105,6 +107,8 @@ public class MainPanelContainer extends JPanel {
         return saveButton;
     }
 
+    //MODIFIES: this
+    //EFFECTS:  creates a button that when clicked loads store/customer data from file
     public JButton makeLoadButton() {
         JButton loadButton = new JButton("Load");
         loadButton.setFocusable(false);
@@ -127,6 +131,8 @@ public class MainPanelContainer extends JPanel {
         return loadButton;
     }
 
+    //MODIFIES: this
+    //EFFECTS: updates the JPanels to the new loaded in state
     public void updatePanels() {
         mainMenu = new MainMenuPanel(MainPanelContainer.this, storeItems, allCustomers);
         storeMenu = new StoreMenu(MainPanelContainer.this, storeItems, allCustomers);
@@ -148,6 +154,8 @@ public class MainPanelContainer extends JPanel {
         viewTheCartTotalPanel = new ViewTheCartTotalPanel(MainPanelContainer.this, storeItems, allCustomers, accessCustomerPanel);
     }
 
+    //MODIFIES: this
+    //EFFECTS: when data is loaded from file, the updated panels are re-added to ensure that up-to-date data is passed
     public void reAddToPanel() {
         add(mainMenu, "mainMenu");
 

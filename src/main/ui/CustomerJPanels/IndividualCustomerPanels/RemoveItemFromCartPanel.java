@@ -3,13 +3,14 @@ package ui.CustomerJPanels.IndividualCustomerPanels;
 import model.AllCustomers;
 import model.ItemList;
 import ui.CustomerJPanels.AccessCustomerPanel;
-import ui.MainPanelContainer;
+import ui.MainMenuJPanels.MainPanelContainer;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+//This class allows a user to remove an item from his/her cart
 public class RemoveItemFromCartPanel extends JPanel {
     private MainPanelContainer container;
     private ItemList storeItems;
@@ -18,6 +19,7 @@ public class RemoveItemFromCartPanel extends JPanel {
     private JLabel itemToRemoveLabel;
     private JTextField itemToRemoveTextField;
 
+    //EFFECTS: creates a new instance of the RemoveItemFromCartPanel class
     public RemoveItemFromCartPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers, AccessCustomerPanel accessCustomerPanel) {
         this.accessCustomerPanel = accessCustomerPanel;
         this.storeItems = storeItems;
@@ -26,6 +28,7 @@ public class RemoveItemFromCartPanel extends JPanel {
         initialize();
     }
 
+    //EFFECTS: initializes this JPanel
     public void initialize() {
         setBackground(Color.cyan);
 
@@ -41,6 +44,8 @@ public class RemoveItemFromCartPanel extends JPanel {
         add(goBackButton);
     }
 
+    //MODIFIES: this
+    //EFFECTS: creates a button that when clicked, removes the item with the entered name from the customers cart
     public JButton makeRemoveItemButton() {
         JButton removeItemButton = new JButton("Remove");
         removeItemButton.addActionListener(new ActionListener() {
@@ -53,7 +58,7 @@ public class RemoveItemFromCartPanel extends JPanel {
         return removeItemButton;
     }
 
-
+    //EFFECTS: creates a button that when clicked takes the user back to the individual menu
     public JButton makeGoBackButton() {
         JButton goBackButton = new JButton("Go Back");
         goBackButton.addActionListener(new ActionListener() {

@@ -2,13 +2,14 @@ package ui.CustomerJPanels;
 
 import model.AllCustomers;
 import model.ItemList;
-import ui.MainPanelContainer;
+import ui.MainMenuJPanels.MainPanelContainer;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+//This class displays the individual menu options for a customer
 public class IndividualMenu extends JPanel {
 
     private GridBagConstraints gbc = new GridBagConstraints();
@@ -16,7 +17,7 @@ public class IndividualMenu extends JPanel {
     private ItemList storeItems;
     private AllCustomers allCustomers;
 
-
+    //EFFECTS: generates a new instance of the IndividualMenu class
     public IndividualMenu(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
         this.storeItems = storeItems;
         this.allCustomers = allCustomers;
@@ -24,6 +25,7 @@ public class IndividualMenu extends JPanel {
         initialize();
     }
 
+    //EFFECTS: initializes this JPanel
     public void initialize() {
         setLayout(new GridBagLayout());
         gbc.insets = new Insets(10, 10, 10, 10);
@@ -50,10 +52,13 @@ public class IndividualMenu extends JPanel {
         makeVisible();
     }
 
+    //MODIFIES: this
+    //EFFECTS: changes the visibility status of this JPanel to true
     public void makeVisible() {
         this.setVisible(true);
     }
 
+    //EFFECTS: creates a button that when clicked takes the user to the addToCart panel
     public JButton makeItemAddButton() {
         JButton itemAddButton = new JButton("Add Item To Cart");
         itemAddButton.setFocusable(false);
@@ -71,6 +76,7 @@ public class IndividualMenu extends JPanel {
         return itemAddButton;
     }
 
+    //EFFECTS: creates a button that when clicked takes the user to the removeFromCart panel
     public JButton makeItemRemoveButton() {
         JButton itemRemoveButton = new JButton("Remove Item From Cart");
         itemRemoveButton.setFocusable(false);
@@ -86,6 +92,7 @@ public class IndividualMenu extends JPanel {
         return itemRemoveButton;
     }
 
+    //EFFECTS: creates a button that when clicked takes the user to the viewItemsInCart panel
     public JButton makeItemsViewButton() {
         JButton itemsViewButton = new JButton("View Items In Cart");
         itemsViewButton.setFocusable(false);
@@ -102,6 +109,7 @@ public class IndividualMenu extends JPanel {
 
     }
 
+    //EFFECTS: creates a button that when clicked takes the user to the viewCartTotal panel
     public JButton makeItemsTotalButton() {
         JButton itemsTotalButton = new JButton("View Total");
         itemsTotalButton.setFocusable(false);
@@ -117,6 +125,7 @@ public class IndividualMenu extends JPanel {
         return itemsTotalButton;
     }
 
+    //EFFECTS: creates a button that when clicked takes the user to the viewReceipt panel
     public JButton makeDisplayReceiptButton() {
         JButton displayReceiptButton = new JButton("Show Receipt");
         displayReceiptButton.setFocusable(false);
@@ -132,7 +141,7 @@ public class IndividualMenu extends JPanel {
         return displayReceiptButton;
     }
 
-
+    //EFFECTS: creates a button that when clicked takes the user back to the customer menu
     public JButton makeBackButton() {
         JButton backButton = new JButton("Go Back");
         backButton.setFocusable(false);

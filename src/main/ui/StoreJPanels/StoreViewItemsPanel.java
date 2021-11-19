@@ -3,7 +3,7 @@ package ui.StoreJPanels;
 import model.AllCustomers;
 import model.Item;
 import model.ItemList;
-import ui.MainPanelContainer;
+import ui.MainMenuJPanels.MainPanelContainer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,12 +11,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+//This class displays all items currently in the store
 public class StoreViewItemsPanel extends JPanel {
     private MainPanelContainer container;
     private ItemList storeItems;
     private AllCustomers allCustomers;
     private JLabel allItems;
 
+    //EFFECTS: creates new instance of the StoreViewItemsPanel class
     public StoreViewItemsPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
         this.storeItems = storeItems;
         this.allCustomers = allCustomers;
@@ -24,6 +26,7 @@ public class StoreViewItemsPanel extends JPanel {
         initialize();
     }
 
+    //EFFECTS: initializes this JPanel
     public void initialize() {
         setBackground(Color.cyan);
 
@@ -37,6 +40,7 @@ public class StoreViewItemsPanel extends JPanel {
         add(goBackButton);
     }
 
+    //EFFECTS: creates button that when clicked displays all items currently in the store
     public JButton makeGetAllItemsButton() {
         JButton getAllItemsButton = new JButton("View All Items");
         getAllItemsButton.addActionListener(new ActionListener() {
@@ -57,6 +61,7 @@ public class StoreViewItemsPanel extends JPanel {
         return getAllItemsButton;
     }
 
+    //EFFECTS: creates button that when clicked takes the user back to the store menu
     public JButton makeGoBackButton() {
         JButton goBackButton = new JButton("Go Back");
         goBackButton.addActionListener(new ActionListener() {

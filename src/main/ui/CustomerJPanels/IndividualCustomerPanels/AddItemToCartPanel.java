@@ -4,13 +4,14 @@ import model.AllCustomers;
 import model.Item;
 import model.ItemList;
 import ui.CustomerJPanels.AccessCustomerPanel;
-import ui.MainPanelContainer;
+import ui.MainMenuJPanels.MainPanelContainer;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+//This class allows a customer to add items to his/her cart
 public class AddItemToCartPanel extends JPanel {
 
     private MainPanelContainer container;
@@ -20,6 +21,7 @@ public class AddItemToCartPanel extends JPanel {
     private JTextField itemToAddNameTextField;
     private AccessCustomerPanel accessCustomerPanel;
 
+    //EFFECTS: creates a new instance of the AddItemToCartPanel class
     public AddItemToCartPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers, AccessCustomerPanel accessCustomerPanel) {
         this.accessCustomerPanel = accessCustomerPanel;
         this.storeItems = storeItems;
@@ -28,6 +30,7 @@ public class AddItemToCartPanel extends JPanel {
         initialize();
     }
 
+    //EFFECTS: initializes this JPanel
     public void initialize() {
         setBackground(Color.cyan);
 
@@ -44,6 +47,9 @@ public class AddItemToCartPanel extends JPanel {
         add(goBackButton);
     }
 
+    //MODIFIES: this
+    //EFFECTS: creates a button that when clicked, checks if the entered JTextField value matches a name in storeItems.
+    //         If true then add item to cart. Otherwise, do not add.
     public JButton makeAddItemToCartButton() {
         JButton addItemToCartButton = new JButton("Add");
         addItemToCartButton.addActionListener(new ActionListener() {
@@ -58,7 +64,6 @@ public class AddItemToCartPanel extends JPanel {
                     }
                 }
                 if (item1 != null) {
-                    System.out.println(accessCustomerPanel.getUserName());
                     allCustomers.getCustomer(accessCustomerPanel.getUserName()).getCart().addToCart(item1);
                 }
             }
@@ -66,7 +71,7 @@ public class AddItemToCartPanel extends JPanel {
         return addItemToCartButton;
     }
 
-
+    //EFFECTS: creates a button that when clicked takes the user back to the individual menu
     public JButton makeGoBackButton() {
         JButton goBackButton = new JButton("Go Back");
         goBackButton.addActionListener(new ActionListener() {

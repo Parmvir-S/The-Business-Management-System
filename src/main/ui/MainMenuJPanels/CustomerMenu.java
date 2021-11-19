@@ -1,4 +1,4 @@
-package ui;
+package ui.MainMenuJPanels;
 
 import model.AllCustomers;
 import model.ItemList;
@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+//This class displays the customer menu which leads to specific tasks the user can perform
 public class CustomerMenu extends JPanel {
 
     private GridBagConstraints gbc = new GridBagConstraints();
@@ -15,6 +16,7 @@ public class CustomerMenu extends JPanel {
     private ItemList storeItems;
     private AllCustomers allCustomers;
 
+    //EFFECTS: creates a new instance of the customerMenu class when called
     public CustomerMenu(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
         this.storeItems = storeItems;
         this.allCustomers = allCustomers;
@@ -22,6 +24,7 @@ public class CustomerMenu extends JPanel {
         initialize();
     }
 
+    //EFFECTS: initializes the JPanel
     public void initialize() {
         setLayout(new GridBagLayout());
         gbc.insets = new Insets(10, 10, 10, 10);
@@ -32,7 +35,6 @@ public class CustomerMenu extends JPanel {
 
         JButton viewCustomerButton = makeViewCustomerButton();
         add(viewCustomerButton, gbc);
-
 
         JButton removeCustomerButton = makeRemoveCustomerButton();
         add(removeCustomerButton, gbc);
@@ -46,10 +48,13 @@ public class CustomerMenu extends JPanel {
         makeVisible();
     }
 
+    //MODIFIES: this
+    //EFFECTS: sets the JPanels visibility status to true so it can be seen
     public void makeVisible() {
         this.setVisible(true);
     }
 
+    //EFFECTS: creates a JButton that redirects the user to the addCustomerPanel
     public JButton makeCustomerButton() {
         JButton addCustomerButton = new JButton("Add Customer");
         addCustomerButton.setFocusable(false);
@@ -67,6 +72,7 @@ public class CustomerMenu extends JPanel {
         return addCustomerButton;
     }
 
+    //EFFECTS: creates a JButton that redirects the user to the viewCustomersPanel
     public JButton makeViewCustomerButton() {
         JButton viewCustomerButton = new JButton("View Customers");
         viewCustomerButton.setFocusable(false);
@@ -82,6 +88,7 @@ public class CustomerMenu extends JPanel {
         return viewCustomerButton;
     }
 
+    //EFFECTS: creates a JButton that redirects the user to the removeCustomerPanel
     public JButton makeRemoveCustomerButton() {
         JButton removeCustomerButton = new JButton("Remove Customer");
         removeCustomerButton.setFocusable(false);
@@ -97,6 +104,7 @@ public class CustomerMenu extends JPanel {
         return removeCustomerButton;
     }
 
+    //EFFECTS: creates a JButton that redirects the user to the accessCustomerPanel
     public JButton makeAccessCustomerButton() {
         JButton accessCustomerButton = new JButton("Access Customer");
         accessCustomerButton.setFocusable(false);
@@ -112,6 +120,7 @@ public class CustomerMenu extends JPanel {
         return accessCustomerButton;
     }
 
+    //EFFECTS: creates a JButton that redirects the user back to the main menu panel
     public JButton makeBackButton() {
         JButton backButton = new JButton("Go Back");
         backButton.setFocusable(false);

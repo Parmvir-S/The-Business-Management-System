@@ -3,13 +3,14 @@ package ui.CustomerJPanels.IndividualCustomerPanels;
 import model.AllCustomers;
 import model.ItemList;
 import ui.CustomerJPanels.AccessCustomerPanel;
-import ui.MainPanelContainer;
+import ui.MainMenuJPanels.MainPanelContainer;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+//This class allows the user to view all the items in a customers cart
 public class ViewItemsInCartPanel extends JPanel {
 
     private MainPanelContainer container;
@@ -18,8 +19,9 @@ public class ViewItemsInCartPanel extends JPanel {
     private AccessCustomerPanel accessCustomerPanel;
     private JLabel itemsInCartLabel;
 
-
-    public ViewItemsInCartPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers, AccessCustomerPanel accessCustomerPanel) {
+    //EFFECTS: creates a new instance of the ViewItemsInCartPanel class
+    public ViewItemsInCartPanel(MainPanelContainer container, ItemList storeItems,
+                                AllCustomers allCustomers, AccessCustomerPanel accessCustomerPanel) {
         this.accessCustomerPanel = accessCustomerPanel;
         this.storeItems = storeItems;
         this.allCustomers = allCustomers;
@@ -27,6 +29,7 @@ public class ViewItemsInCartPanel extends JPanel {
         initialize();
     }
 
+    //EFFECTS: initializes this JPanel
     public void initialize() {
         setBackground(Color.cyan);
 
@@ -40,6 +43,7 @@ public class ViewItemsInCartPanel extends JPanel {
         add(goBackButton);
     }
 
+    //EFFECTS: creates a button that when clicked, displays the name of every item in the customers cart
     public JButton makeViewCartItemsButton() {
         JButton viewCartItemsButton = new JButton("View Cart Items");
         viewCartItemsButton.addActionListener(new ActionListener() {
@@ -52,6 +56,7 @@ public class ViewItemsInCartPanel extends JPanel {
         return viewCartItemsButton;
     }
 
+    //EFFECTS: creates a button that when clicked takes the user back to the individual menu
     public JButton makeGoBackButton() {
         JButton goBackButton = new JButton("Go Back");
         goBackButton.addActionListener(new ActionListener() {

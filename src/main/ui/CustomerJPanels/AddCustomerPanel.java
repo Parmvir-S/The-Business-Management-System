@@ -4,7 +4,7 @@ import model.AllCustomers;
 import model.Customer;
 import model.CustomerCart;
 import model.ItemList;
-import ui.MainPanelContainer;
+import ui.MainMenuJPanels.MainPanelContainer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
 
+//Displays the add customer JPanel
 public class AddCustomerPanel extends JPanel {
 
     private MainPanelContainer container;
@@ -24,6 +25,7 @@ public class AddCustomerPanel extends JPanel {
     private JLabel customerPhoneNumberLabel;
     private JTextField customerPhoneNumberTextField;
 
+    //EFFECTS: creates a new instance of the AddCustomerPanel class
     public AddCustomerPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
         this.storeItems = storeItems;
         this.allCustomers = allCustomers;
@@ -31,6 +33,7 @@ public class AddCustomerPanel extends JPanel {
         initialize();
     }
 
+    //EFFECTS: initializes this JPanel
     public void initialize() {
         setBackground(Color.cyan);
 
@@ -55,6 +58,9 @@ public class AddCustomerPanel extends JPanel {
         add(goBackButton);
     }
 
+    //MODIFIES: this
+    //EFFECTS: creates a button that when clicked, uses the JTextField values to create and
+    //         add a new customer to allCustomers
     public JButton makeNewCustomerButton() {
         JButton createNewCustomerButton = new JButton("Create Customer");
         createNewCustomerButton.addActionListener(new ActionListener() {
@@ -74,6 +80,7 @@ public class AddCustomerPanel extends JPanel {
         return createNewCustomerButton;
     }
 
+    //EFFECTS: creates a button that when clicked takes the user back to the customer menu
     public JButton makeGoBackButton() {
         JButton goBackButton = new JButton("Go Back");
         goBackButton.addActionListener(new ActionListener() {

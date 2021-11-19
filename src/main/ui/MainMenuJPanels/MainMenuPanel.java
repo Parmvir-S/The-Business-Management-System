@@ -1,19 +1,14 @@
-package ui;
+package ui.MainMenuJPanels;
 
 import model.AllCustomers;
 import model.ItemList;
-import persistence.JsonReader;
-import persistence.JsonReaderCustomer;
-import persistence.JsonWriter;
-import persistence.JsonWriterCustomer;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
+//This class holds the main menu panel that allows you to access store/customer options and save/load data
 public class MainMenuPanel extends JPanel {
 
     private GridBagConstraints gbc = new GridBagConstraints();
@@ -21,7 +16,7 @@ public class MainMenuPanel extends JPanel {
     private ItemList storeItems;
     private AllCustomers allCustomers;
 
-
+    //EFFECTS: creates a new instance of the MainMenuPanel class
     public MainMenuPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
         this.storeItems = storeItems;
         this.allCustomers = allCustomers;
@@ -29,11 +24,8 @@ public class MainMenuPanel extends JPanel {
         initialize();
     }
 
+    //EFFECTS: this method initializes the JPanel
     public void initialize() {
-//        setLayout(new FlowLayout(FlowLayout.LEFT, 10, 10));
-//        setLayout(new GridLayout(4, 3, 15, 25));
-
-
         setLayout(new GridBagLayout());
         gbc.insets = new Insets(10, 10, 10, 10);
         setBackground(Color.cyan);
@@ -44,16 +36,10 @@ public class MainMenuPanel extends JPanel {
         JButton customerMenuButton = makeCustomerButton();
         add(customerMenuButton, gbc);
 
-
-//        JButton saveButton = makeSaveButton();
-//        add(saveButton, gbc);
-//
-//        JButton loadButton = makeLoadButton();
-//        add(loadButton, gbc);
-
         makeVisible();
     }
 
+    //EFFECTS: creates a JButton that redirects the user to the store menu
     public JButton makeStoreButton() {
         JButton storeMenuButton = new JButton("Store Menu");
         storeMenuButton.setFocusable(false);
@@ -71,6 +57,7 @@ public class MainMenuPanel extends JPanel {
         return storeMenuButton;
     }
 
+    //EFFECTS: creates a JButton that redirects the user to the customer menu
     public JButton makeCustomerButton() {
         JButton customerMenuButton = new JButton("Customer Menu");
         customerMenuButton.setFocusable(false);
@@ -86,25 +73,9 @@ public class MainMenuPanel extends JPanel {
         return customerMenuButton;
     }
 
-    public JButton makeSaveButton() {
-        JButton saveButton = new JButton("Save");
-        saveButton.setFocusable(false);
-        gbc.gridx = 0;
-        gbc.gridy = 5;
-        return saveButton;
-    }
-
-    public JButton makeLoadButton() {
-        JButton loadButton = new JButton("Load");
-        loadButton.setFocusable(false);
-        gbc.gridx = 0;
-        gbc.gridy = 7;
-        return loadButton;
-    }
-
-
+    //MODIFIES: this
+    //EFFECTS: changes the visibility status of this JPanel to true
     public void makeVisible() {
         this.setVisible(true);
     }
-
 }

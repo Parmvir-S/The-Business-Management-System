@@ -3,7 +3,7 @@ package ui.CustomerJPanels.IndividualCustomerPanels;
 import model.AllCustomers;
 import model.ItemList;
 import ui.CustomerJPanels.AccessCustomerPanel;
-import ui.MainPanelContainer;
+import ui.MainMenuJPanels.MainPanelContainer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+//This class produces a receipt for a customer
 public class ReceiptPanel extends JPanel {
 
     private MainPanelContainer container;
@@ -19,6 +20,7 @@ public class ReceiptPanel extends JPanel {
     private AccessCustomerPanel accessCustomerPanel;
     private JLabel viewReceiptLabel;
 
+    //EFFECTS: creates a new instance of the ReceiptPanel class
     public ReceiptPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers, AccessCustomerPanel accessCustomerPanel) {
         this.accessCustomerPanel = accessCustomerPanel;
         this.storeItems = storeItems;
@@ -27,6 +29,7 @@ public class ReceiptPanel extends JPanel {
         initialize();
     }
 
+    //EFFECTS: initializes this JPanel
     public void initialize() {
         setBackground(Color.cyan);
 
@@ -40,6 +43,7 @@ public class ReceiptPanel extends JPanel {
         add(goBackButton);
     }
 
+    //EFFECTS: creates a button that when clicked displays a receipt for the customer
     public JButton makeViewReceiptButton() {
         JButton viewReceiptButton = new JButton("Print Receipt");
         viewReceiptButton.addActionListener(new ActionListener() {
@@ -56,7 +60,7 @@ public class ReceiptPanel extends JPanel {
         return viewReceiptButton;
     }
 
-
+    //EFFECTS: creates a button that when clicked takes the user back to the individual menu
     public JButton makeGoBackButton() {
         JButton goBackButton = new JButton("Go Back");
         goBackButton.addActionListener(new ActionListener() {

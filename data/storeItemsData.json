@@ -1,27 +1,5 @@
-{"Store Items": [
-    {
-        "price": 3,
-        "name": "apple",
-        "description": "fruit"
-    },
-    {
-        "price": 4,
-        "name": "orange",
-        "description": "fruit"
-    },
-    {
-        "price": 4,
-        "name": "blt",
-        "description": "sandwich"
-    },
-    {
-        "price": 2,
-        "name": "junior chicken",
-        "description": "sandwich"
-    },
-    {
-        "price": 44,
-        "name": "banana",
-        "description": "fruit"
-    }
-]}
+{"Store Items": [{
+    "price": 3,
+    "name": "apple",
+    "description": "fruit"
+}]}

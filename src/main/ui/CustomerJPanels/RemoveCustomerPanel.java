@@ -2,13 +2,14 @@ package ui.CustomerJPanels;
 
 import model.AllCustomers;
 import model.ItemList;
-import ui.MainPanelContainer;
+import ui.MainMenuJPanels.MainPanelContainer;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+//This class displays the panel which allows the user to remove a customer
 public class RemoveCustomerPanel extends JPanel {
 
     private MainPanelContainer container;
@@ -17,6 +18,7 @@ public class RemoveCustomerPanel extends JPanel {
     private JLabel customerToRemoveNameLabel;
     private JTextField customerToRemoveNameTextField;
 
+    //EFFECTS: creates a new instance of the RemoveCustomerPanel class
     public RemoveCustomerPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
         this.storeItems = storeItems;
         this.allCustomers = allCustomers;
@@ -24,6 +26,7 @@ public class RemoveCustomerPanel extends JPanel {
         initialize();
     }
 
+    //EFFECTS: initializes this JPanel
     public void initialize() {
         setBackground(Color.cyan);
 
@@ -40,6 +43,8 @@ public class RemoveCustomerPanel extends JPanel {
         add(goBackButton);
     }
 
+    //MODIFIES: this
+    //EFFECTS: creates a button that when clicked removes the customer with the entered name
     public JButton makeRemoveCustomerButton() {
         JButton removeCustomerButton = new JButton("Remove");
         removeCustomerButton.addActionListener(new ActionListener() {
@@ -52,6 +57,7 @@ public class RemoveCustomerPanel extends JPanel {
         return removeCustomerButton;
     }
 
+    //EFFECTS: creates a button that when clicked takes the user back to the customer menu
     public JButton makeGoBackButton() {
         JButton goBackButton = new JButton("Go Back");
         goBackButton.addActionListener(new ActionListener() {

@@ -1,23 +1,11 @@
 {"Customers": [{
-    "phoneNumber": 323,
-    "customerID": -341916762,
+    "phoneNumber": 333,
+    "customerID": -246237730,
     "name": "parm",
-    "email": "dsfs",
-    "cart": [
-        {
-            "price": 3,
-            "name": "apple",
-            "description": "fruit"
-        },
-        {
-            "price": 2,
-            "name": "junior chicken",
-            "description": "sandwich"
-        },
-        {
-            "price": 44,
-            "name": "banana",
-            "description": "fruit"
-        }
-    ]
+    "email": "ffff",
+    "cart": [{
+        "price": 3,
+        "name": "apple",
+        "description": "fruit"
+    }]
 }]}
