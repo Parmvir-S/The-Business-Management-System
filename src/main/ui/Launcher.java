@@ -1,6 +1,6 @@
 package ui;
 
-import ui.MainMenuJPanels.MainFrame;
+import ui.mainmenujpanels.MainFrame;
 
 import javax.swing.*;
 

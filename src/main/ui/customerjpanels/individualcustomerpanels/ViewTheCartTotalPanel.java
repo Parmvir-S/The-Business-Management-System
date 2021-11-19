@@ -1,27 +1,27 @@
-package ui.CustomerJPanels.IndividualCustomerPanels;
+package ui.customerjpanels.individualcustomerpanels;
 
 import model.AllCustomers;
 import model.ItemList;
-import ui.CustomerJPanels.AccessCustomerPanel;
-import ui.MainMenuJPanels.MainPanelContainer;
+import ui.customerjpanels.AccessCustomerPanel;
+import ui.mainmenujpanels.MainPanelContainer;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-//This class allows the user to view all the items in a customers cart
-public class ViewItemsInCartPanel extends JPanel {
+//This class allows the user to view the cart total so far
+public class ViewTheCartTotalPanel extends JPanel {
 
     private MainPanelContainer container;
     private ItemList storeItems;
     private AllCustomers allCustomers;
     private AccessCustomerPanel accessCustomerPanel;
-    private JLabel itemsInCartLabel;
+    private JLabel cartTotalLabel;
 
-    //EFFECTS: creates a new instance of the ViewItemsInCartPanel class
-    public ViewItemsInCartPanel(MainPanelContainer container, ItemList storeItems,
-                                AllCustomers allCustomers, AccessCustomerPanel accessCustomerPanel) {
+    //EFFECTS: creates a new instance of the ViewTheCartTotalPanel class
+    public ViewTheCartTotalPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers,
+                                 AccessCustomerPanel accessCustomerPanel) {
         this.accessCustomerPanel = accessCustomerPanel;
         this.storeItems = storeItems;
         this.allCustomers = allCustomers;
@@ -33,27 +33,28 @@ public class ViewItemsInCartPanel extends JPanel {
     public void initialize() {
         setBackground(Color.cyan);
 
-        itemsInCartLabel = new JLabel();
-        add(itemsInCartLabel);
+        cartTotalLabel = new JLabel();
+        add(cartTotalLabel);
 
-        JButton viewCartItemsButton = makeViewCartItemsButton();
-        add(viewCartItemsButton);
+        JButton viewCartTotalButton = makeViewCartTotalButton();
+        add(viewCartTotalButton);
 
         JButton goBackButton = makeGoBackButton();
         add(goBackButton);
     }
 
-    //EFFECTS: creates a button that when clicked, displays the name of every item in the customers cart
-    public JButton makeViewCartItemsButton() {
-        JButton viewCartItemsButton = new JButton("View Cart Items");
-        viewCartItemsButton.addActionListener(new ActionListener() {
+    //EFFECTS: creates a button that when clicked displays the current total of the cart
+    public JButton makeViewCartTotalButton() {
+        JButton viewCartTotalButton = new JButton("View Total");
+        viewCartTotalButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String cartItems = allCustomers.getCustomer(accessCustomerPanel.getUserName()).getCart().viewCart();
-                itemsInCartLabel.setText(cartItems);
+                double total = allCustomers.getCustomer(accessCustomerPanel.getUserName()).getCart().totalPrice();
+                cartTotalLabel.setText(String.valueOf(total));
+                cartTotalLabel.setFont(new Font("Arial", Font.BOLD, 48));
             }
         });
-        return viewCartItemsButton;
+        return viewCartTotalButton;
     }
 
     //EFFECTS: creates a button that when clicked takes the user back to the individual menu

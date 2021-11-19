@@ -1,11 +1,23 @@
 {"Customers": [{
-    "phoneNumber": 333,
-    "customerID": -246237730,
+    "phoneNumber": 123,
+    "customerID": 833987599,
     "name": "parm",
-    "email": "ffff",
-    "cart": [{
-        "price": 3,
-        "name": "apple",
-        "description": "fruit"
-    }]
+    "email": "email@email.com",
+    "cart": [
+        {
+            "price": 3,
+            "name": "apple",
+            "description": "fruit"
+        },
+        {
+            "price": 4,
+            "name": "orange",
+            "description": "fruit"
+        },
+        {
+            "price": 3,
+            "name": "apple",
+            "description": "fruit"
+        }
+    ]
 }]}

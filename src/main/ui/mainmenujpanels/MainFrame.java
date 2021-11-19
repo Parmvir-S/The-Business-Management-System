@@ -1,4 +1,4 @@
-package ui.MainMenuJPanels;
+package ui.mainmenujpanels;
 
 import javax.swing.*;
 import java.awt.*;

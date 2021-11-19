@@ -1,8 +1,8 @@
-package ui.StoreJPanels;
+package ui.storejpanels;
 
 import model.AllCustomers;
 import model.ItemList;
-import ui.MainMenuJPanels.MainPanelContainer;
+import ui.mainmenujpanels.MainPanelContainer;
 
 import javax.swing.*;
 import java.awt.*;

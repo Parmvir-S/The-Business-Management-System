@@ -1,9 +1,9 @@
-package ui.CustomerJPanels.IndividualCustomerPanels;
+package ui.customerjpanels.individualcustomerpanels;
 
 import model.AllCustomers;
 import model.ItemList;
-import ui.CustomerJPanels.AccessCustomerPanel;
-import ui.MainMenuJPanels.MainPanelContainer;
+import ui.customerjpanels.AccessCustomerPanel;
+import ui.mainmenujpanels.MainPanelContainer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,7 +21,8 @@ public class ReceiptPanel extends JPanel {
     private JLabel viewReceiptLabel;
 
     //EFFECTS: creates a new instance of the ReceiptPanel class
-    public ReceiptPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers, AccessCustomerPanel accessCustomerPanel) {
+    public ReceiptPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers,
+                        AccessCustomerPanel accessCustomerPanel) {
         this.accessCustomerPanel = accessCustomerPanel;
         this.storeItems = storeItems;
         this.allCustomers = allCustomers;

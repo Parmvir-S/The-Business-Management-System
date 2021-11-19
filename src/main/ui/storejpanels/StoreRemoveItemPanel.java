@@ -1,27 +1,25 @@
-package ui.CustomerJPanels.IndividualCustomerPanels;
+package ui.storejpanels;
 
 import model.AllCustomers;
 import model.ItemList;
-import ui.CustomerJPanels.AccessCustomerPanel;
-import ui.MainMenuJPanels.MainPanelContainer;
+import ui.mainmenujpanels.MainPanelContainer;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-//This class allows a user to remove an item from his/her cart
-public class RemoveItemFromCartPanel extends JPanel {
+//This class allows the user to remove items from the store
+public class StoreRemoveItemPanel extends JPanel {
+
     private MainPanelContainer container;
     private ItemList storeItems;
     private AllCustomers allCustomers;
-    private AccessCustomerPanel accessCustomerPanel;
-    private JLabel itemToRemoveLabel;
-    private JTextField itemToRemoveTextField;
+    private JLabel itemToRemoveNameLabel;
+    private JTextField itemToRemoveNameTextField;
 
-    //EFFECTS: creates a new instance of the RemoveItemFromCartPanel class
-    public RemoveItemFromCartPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers, AccessCustomerPanel accessCustomerPanel) {
-        this.accessCustomerPanel = accessCustomerPanel;
+    //EFFECTS: creates a new instance of the StoreRemoveItemPanel class
+    public StoreRemoveItemPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
         this.storeItems = storeItems;
         this.allCustomers = allCustomers;
         this.container = container;
@@ -32,10 +30,11 @@ public class RemoveItemFromCartPanel extends JPanel {
     public void initialize() {
         setBackground(Color.cyan);
 
-        itemToRemoveLabel = new JLabel("Item Name:");
-        itemToRemoveTextField = new JTextField(20);
-        add(itemToRemoveLabel);
-        add(itemToRemoveTextField);
+        itemToRemoveNameLabel = new JLabel("Name Of Item To Remove");
+        itemToRemoveNameTextField = new JTextField(20);
+
+        add(itemToRemoveNameLabel);
+        add(itemToRemoveNameTextField);
 
         JButton removeItemButton = makeRemoveItemButton();
         add(removeItemButton);
@@ -45,27 +44,27 @@ public class RemoveItemFromCartPanel extends JPanel {
     }
 
     //MODIFIES: this
-    //EFFECTS: creates a button that when clicked, removes the item with the entered name from the customers cart
+    //EFFECTS: creates a button that when clicked removes an item in the store with the entered name
     public JButton makeRemoveItemButton() {
         JButton removeItemButton = new JButton("Remove");
         removeItemButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String itemName = itemToRemoveTextField.getText();
-                allCustomers.getCustomer(accessCustomerPanel.getUserName()).getCart().removeFromCart(itemName);
+                String name = itemToRemoveNameTextField.getText();
+                storeItems.removeItem(name);
             }
         });
         return removeItemButton;
     }
 
-    //EFFECTS: creates a button that when clicked takes the user back to the individual menu
+    //EFFECTS: creates a button that when clicked takes the user back to the store menu
     public JButton makeGoBackButton() {
         JButton goBackButton = new JButton("Go Back");
         goBackButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CardLayout cardLayout = (CardLayout) container.getLayout();
-                cardLayout.show(container, "individualMenu");
+                cardLayout.show(container, "storeMenu");
             }
         });
         return goBackButton;

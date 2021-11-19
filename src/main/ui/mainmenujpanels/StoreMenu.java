@@ -1,4 +1,4 @@
-package ui.MainMenuJPanels;
+package ui.mainmenujpanels;
 
 import model.AllCustomers;
 import model.ItemList;

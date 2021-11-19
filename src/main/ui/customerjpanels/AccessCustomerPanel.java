@@ -1,9 +1,9 @@
-package ui.CustomerJPanels;
+package ui.customerjpanels;
 
 import model.AllCustomers;
 import model.Customer;
 import model.ItemList;
-import ui.MainMenuJPanels.MainPanelContainer;
+import ui.mainmenujpanels.MainPanelContainer;
 
 import javax.swing.*;
 import java.awt.*;

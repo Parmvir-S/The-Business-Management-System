@@ -1,5 +1,12 @@
-{"Store Items": [{
-    "price": 3,
-    "name": "apple",
-    "description": "fruit"
-}]}
+{"Store Items": [
+    {
+        "price": 3,
+        "name": "apple",
+        "description": "fruit"
+    },
+    {
+        "price": 4,
+        "name": "orange",
+        "description": "fruit"
+    }
+]}

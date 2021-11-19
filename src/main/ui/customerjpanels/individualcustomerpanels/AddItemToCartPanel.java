@@ -1,10 +1,10 @@
-package ui.CustomerJPanels.IndividualCustomerPanels;
+package ui.customerjpanels.individualcustomerpanels;
 
 import model.AllCustomers;
 import model.Item;
 import model.ItemList;
-import ui.CustomerJPanels.AccessCustomerPanel;
-import ui.MainMenuJPanels.MainPanelContainer;
+import ui.customerjpanels.AccessCustomerPanel;
+import ui.mainmenujpanels.MainPanelContainer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,7 +22,8 @@ public class AddItemToCartPanel extends JPanel {
     private AccessCustomerPanel accessCustomerPanel;
 
     //EFFECTS: creates a new instance of the AddItemToCartPanel class
-    public AddItemToCartPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers, AccessCustomerPanel accessCustomerPanel) {
+    public AddItemToCartPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers,
+                              AccessCustomerPanel accessCustomerPanel) {
         this.accessCustomerPanel = accessCustomerPanel;
         this.storeItems = storeItems;
         this.allCustomers = allCustomers;
