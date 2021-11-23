@@ -31,6 +31,7 @@ public class AllCustomers implements Writable {
     //EFFECTS: adds a customer to the customers list
     public void addCustomer(Customer customer) {
         customers.add(customer);
+        EventLog.getInstance().logEvent(new Event("Customer " + customer.getName() + " was added to customers"));
     }
 
     //MODIFIES: this
@@ -43,6 +44,7 @@ public class AllCustomers implements Writable {
             }
         }
         customers.remove(customerToRemove);
+        EventLog.getInstance().logEvent(new Event("Customer " + customerToRemove.getName() + " was removed"));
     }
 
     //EFFECTS: returns the customers list

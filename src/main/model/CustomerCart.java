@@ -20,6 +20,7 @@ public class CustomerCart  {
     //EFFECTS: adds the item with the passed in name to the customers cart
     public void addToCart(Item item) {
         cart.add(item);
+        EventLog.getInstance().logEvent(new Event("Item " + item.getName() + " was added to the cart"));
     }
 
     //MODIFIES: this
@@ -32,6 +33,7 @@ public class CustomerCart  {
             }
         }
         cart.remove(itemToRemove);
+        EventLog.getInstance().logEvent(new Event("Item " + itemToRemove.getName() + " was removed from the cart"));
     }
 
     //EFFECTS: returns names all the items currently in the customers cart

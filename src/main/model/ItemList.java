@@ -24,6 +24,7 @@ public class ItemList implements Writable {
     //EFFECTS: adds an item to items
     public void addItem(Item item) {
         items.add(item);
+        EventLog.getInstance().logEvent(new Event("Item " + item.getName() + " was added to the store"));
     }
 
     //MODIFIES: this
@@ -36,6 +37,7 @@ public class ItemList implements Writable {
             }
         }
         items.remove(itemToRemove);
+        EventLog.getInstance().logEvent(new Event("Item " + itemToRemove.getName() + " was removed from the store"));
     }
 
     //REQUIRES: item that needs to be updated must be in the items (ArrayList)
@@ -47,6 +49,7 @@ public class ItemList implements Writable {
                 item.setName(name);
                 item.setPrice(price);
                 item.setDescription(description);
+                EventLog.getInstance().logEvent(new Event("Item " + itemName + " was updated to " + name));
             }
         }
 

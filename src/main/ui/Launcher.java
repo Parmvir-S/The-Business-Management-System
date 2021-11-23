@@ -1,5 +1,6 @@
 package ui;
 
+
 import ui.mainmenujpanels.MainFrame;
 
 import javax.swing.*;
@@ -13,6 +14,5 @@ public class Launcher {
                 MainFrame mainFrame = new MainFrame();
             }
         });
-
     }
 }
