@@ -36,3 +36,22 @@ This project is of interest to me because I am surrounded by young entrepreneurs
 - As a user, when I am at the main application menu, I want to be reminded to save my store and customer data to file and have the option to do so or not
 - As a user, when I start the application, I want to be given the option to load my store and customer data
 
+## Phase 4: Task 2
+- Tue Nov 23 20:20:52 PST 2021
+- Item Apple was added to the store
+- Tue Nov 23 20:20:57 PST 2021
+- Item Orange was added to the store
+- Tue Nov 23 20:21:04 PST 2021
+- Item Banana was added to the store
+- Tue Nov 23 20:21:13 PST 2021
+- Item Banana was removed from the store
+- Tue Nov 23 20:21:53 PST 2021
+- Customer Parm was added to customers
+- Tue Nov 23 20:22:16 PST 2021
+- Customer LeBron James was added to customers
+- Tue Nov 23 20:22:26 PST 2021
+- Customer LeBron James was removed
+- Tue Nov 23 20:22:37 PST 2021
+- Item Apple was added to the cart
+- Tue Nov 23 20:22:50 PST 2021
+- Item Apple was removed from the cart
