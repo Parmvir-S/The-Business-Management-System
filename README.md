@@ -57,6 +57,15 @@ This project is of interest to me because I am surrounded by young entrepreneurs
 - Item Apple was removed from the cart
 
 ## Phase 4: Task 3
+The design presented in this project's UML class diagram 
+shows that there is too much coupling in the classes related
+to the user interface. Therefore, I should have researched more
+to find a better solution to implement the multi JPanel system. The 
+diagram also shows that the classes have descriptive names that are representative
+of their function. The classes have also been broken down into many classes 
+for better organization of code. To refactor and improve the quality of the code in this
+project I suggest the following changes:
+
 - I would create a new abstract class called ItemsList
 - I would then have both CustomerCart and ItemList extend that abstract class as these classes share very similar functionality. Some of the methods are even identical so the implementation could be provided in the abstract class for those methods.
 - In the UI I could use the observer pattern. When the store and customer data is loaded in, I could then make the class holding the current state of the program the subject (observable). All the classes dependent on that loaded in customer and store data will be the observers and will be notified and updated whenever the load button is clicked in the application.
