@@ -21,12 +21,10 @@ public class StoreAddItemPanel extends JPanel {
     private JLabel itemPriceLabel;
     private JTextField itemPriceTextField;
     private ItemList storeItems;
-    private AllCustomers allCustomers;
 
     //EFFECTS: creates a new instance of the StoreAddItemPanel class
-    public StoreAddItemPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
+    public StoreAddItemPanel(MainPanelContainer container, ItemList storeItems) {
         this.storeItems = storeItems;
-        this.allCustomers = allCustomers;
         this.container = container;
         initialize();
     }

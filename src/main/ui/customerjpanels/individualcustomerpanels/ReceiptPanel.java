@@ -15,16 +15,14 @@ import java.util.ArrayList;
 public class ReceiptPanel extends JPanel {
 
     private MainPanelContainer container;
-    private ItemList storeItems;
     private AllCustomers allCustomers;
     private AccessCustomerPanel accessCustomerPanel;
     private JLabel viewReceiptLabel;
 
     //EFFECTS: creates a new instance of the ReceiptPanel class
-    public ReceiptPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers,
+    public ReceiptPanel(MainPanelContainer container, AllCustomers allCustomers,
                         AccessCustomerPanel accessCustomerPanel) {
         this.accessCustomerPanel = accessCustomerPanel;
-        this.storeItems = storeItems;
         this.allCustomers = allCustomers;
         this.container = container;
         initialize();

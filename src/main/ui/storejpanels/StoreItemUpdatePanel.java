@@ -14,7 +14,6 @@ public class StoreItemUpdatePanel extends JPanel {
 
     private MainPanelContainer container;
     private ItemList storeItems;
-    private AllCustomers allCustomers;
 
     private JLabel itemToUpdateNameLabel;
     private JTextField itemToUpdateNameTextField;
@@ -26,9 +25,8 @@ public class StoreItemUpdatePanel extends JPanel {
     private JTextField itemPriceTextField;
 
     //EFFECTS: creates a new instance of the StoreItemUpdatePanel class
-    public StoreItemUpdatePanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
+    public StoreItemUpdatePanel(MainPanelContainer container, ItemList storeItems) {
         this.storeItems = storeItems;
-        this.allCustomers = allCustomers;
         this.container = container;
         initialize();
     }

@@ -28,31 +28,28 @@ public class MainPanelContainer extends JPanel {
     JsonWriterCustomer jsonWriterCustomer = new JsonWriterCustomer(JSON_STORE_CUSTOMERS);
     JsonReaderCustomer jsonReaderCustomer = new JsonReaderCustomer(JSON_STORE_CUSTOMERS);
 
-    private MainMenuPanel mainMenu = new MainMenuPanel(this, storeItems, allCustomers);
-    private StoreMenu storeMenu = new StoreMenu(this, storeItems, allCustomers);
+    private MainMenuPanel mainMenu = new MainMenuPanel(this);
+    private StoreMenu storeMenu = new StoreMenu(this);
     private CustomerMenu customerMenu = new CustomerMenu(this, storeItems, allCustomers);
-    private StoreAddItemPanel storeAddItemPanel = new StoreAddItemPanel(this, storeItems, allCustomers);
-    private StoreRemoveItemPanel storeRemoveItemPanel = new StoreRemoveItemPanel(this,
-            storeItems, allCustomers);
-    private StoreItemUpdatePanel storeItemUpdatePanel = new StoreItemUpdatePanel(this,
-            storeItems, allCustomers);
-    private StoreStatsDisplayPanel storeStatsDisplayPanel = new StoreStatsDisplayPanel(this,
-            storeItems, allCustomers);
-    private StoreViewItemsPanel storeViewItemsPanel = new StoreViewItemsPanel(this, storeItems, allCustomers);
-    private AddCustomerPanel addCustomerPanel = new AddCustomerPanel(this, storeItems, allCustomers);
-    private ViewCustomersPanel viewCustomersPanel = new ViewCustomersPanel(this, storeItems, allCustomers);
-    private RemoveCustomerPanel removeCustomerPanel = new RemoveCustomerPanel(this, storeItems, allCustomers);
-    private IndividualMenu individualMenu = new IndividualMenu(this, storeItems, allCustomers);
-    private AccessCustomerPanel accessCustomerPanel = new AccessCustomerPanel(this, storeItems, allCustomers);
+    private StoreAddItemPanel storeAddItemPanel = new StoreAddItemPanel(this, storeItems);
+    private StoreRemoveItemPanel storeRemoveItemPanel = new StoreRemoveItemPanel(this, storeItems);
+    private StoreItemUpdatePanel storeItemUpdatePanel = new StoreItemUpdatePanel(this, storeItems);
+    private StoreStatsDisplayPanel storeStatsDisplayPanel = new StoreStatsDisplayPanel(this, allCustomers);
+    private StoreViewItemsPanel storeViewItemsPanel = new StoreViewItemsPanel(this, storeItems);
+    private AddCustomerPanel addCustomerPanel = new AddCustomerPanel(this, allCustomers);
+    private ViewCustomersPanel viewCustomersPanel = new ViewCustomersPanel(this, allCustomers);
+    private RemoveCustomerPanel removeCustomerPanel = new RemoveCustomerPanel(this, allCustomers);
+    private IndividualMenu individualMenu = new IndividualMenu(this);
+    private AccessCustomerPanel accessCustomerPanel = new AccessCustomerPanel(this, allCustomers);
     private AddItemToCartPanel addItemToCartPanel = new AddItemToCartPanel(this,
             storeItems, allCustomers, accessCustomerPanel);
-    private ReceiptPanel receiptPanel = new ReceiptPanel(this, storeItems, allCustomers, accessCustomerPanel);
+    private ReceiptPanel receiptPanel = new ReceiptPanel(this, allCustomers, accessCustomerPanel);
     private RemoveItemFromCartPanel removeItemFromCartPanel = new RemoveItemFromCartPanel(this,
-            storeItems, allCustomers, accessCustomerPanel);
+            allCustomers, accessCustomerPanel);
     private ViewItemsInCartPanel viewItemsInCartPanel = new ViewItemsInCartPanel(this,
-            storeItems, allCustomers, accessCustomerPanel);
+            allCustomers, accessCustomerPanel);
     private ViewTheCartTotalPanel viewTheCartTotalPanel = new ViewTheCartTotalPanel(this,
-            storeItems, allCustomers, accessCustomerPanel);
+            allCustomers, accessCustomerPanel);
     private CardLayout cl = new CardLayout();
     private GridBagConstraints gbc = new GridBagConstraints();
 
@@ -141,29 +138,28 @@ public class MainPanelContainer extends JPanel {
     //MODIFIES: this
     //EFFECTS: updates the JPanels to the new loaded in state
     public void updatePanels() {
-        mainMenu = new MainMenuPanel(MainPanelContainer.this, storeItems, allCustomers);
-        storeMenu = new StoreMenu(MainPanelContainer.this, storeItems, allCustomers);
+        mainMenu = new MainMenuPanel(MainPanelContainer.this);
+        storeMenu = new StoreMenu(MainPanelContainer.this);
         customerMenu = new CustomerMenu(MainPanelContainer.this, storeItems, allCustomers);
-        storeAddItemPanel = new StoreAddItemPanel(MainPanelContainer.this, storeItems, allCustomers);
-        storeRemoveItemPanel = new StoreRemoveItemPanel(MainPanelContainer.this, storeItems, allCustomers);
-        storeItemUpdatePanel = new StoreItemUpdatePanel(MainPanelContainer.this, storeItems, allCustomers);
-        storeStatsDisplayPanel = new StoreStatsDisplayPanel(MainPanelContainer.this, storeItems, allCustomers);
-        storeViewItemsPanel = new StoreViewItemsPanel(MainPanelContainer.this, storeItems, allCustomers);
-        addCustomerPanel = new AddCustomerPanel(MainPanelContainer.this, storeItems, allCustomers);
-        viewCustomersPanel = new ViewCustomersPanel(MainPanelContainer.this, storeItems, allCustomers);
-        removeCustomerPanel = new RemoveCustomerPanel(MainPanelContainer.this, storeItems, allCustomers);
-        individualMenu = new IndividualMenu(MainPanelContainer.this, storeItems, allCustomers);
-        accessCustomerPanel = new AccessCustomerPanel(MainPanelContainer.this, storeItems, allCustomers);
+        storeAddItemPanel = new StoreAddItemPanel(MainPanelContainer.this, storeItems);
+        storeRemoveItemPanel = new StoreRemoveItemPanel(MainPanelContainer.this, storeItems);
+        storeItemUpdatePanel = new StoreItemUpdatePanel(MainPanelContainer.this, storeItems);
+        storeStatsDisplayPanel = new StoreStatsDisplayPanel(MainPanelContainer.this, allCustomers);
+        storeViewItemsPanel = new StoreViewItemsPanel(MainPanelContainer.this, storeItems);
+        addCustomerPanel = new AddCustomerPanel(MainPanelContainer.this, allCustomers);
+        viewCustomersPanel = new ViewCustomersPanel(MainPanelContainer.this, allCustomers);
+        removeCustomerPanel = new RemoveCustomerPanel(MainPanelContainer.this, allCustomers);
+        individualMenu = new IndividualMenu(MainPanelContainer.this);
+        accessCustomerPanel = new AccessCustomerPanel(MainPanelContainer.this, allCustomers);
         addItemToCartPanel = new AddItemToCartPanel(MainPanelContainer.this,
                 storeItems, allCustomers, accessCustomerPanel);
-        receiptPanel = new ReceiptPanel(MainPanelContainer.this,
-                storeItems, allCustomers, accessCustomerPanel);
+        receiptPanel = new ReceiptPanel(MainPanelContainer.this, allCustomers, accessCustomerPanel);
         removeItemFromCartPanel = new RemoveItemFromCartPanel(MainPanelContainer.this,
-                storeItems, allCustomers, accessCustomerPanel);
+                allCustomers, accessCustomerPanel);
         viewItemsInCartPanel = new ViewItemsInCartPanel(MainPanelContainer.this,
-                storeItems, allCustomers, accessCustomerPanel);
+                allCustomers, accessCustomerPanel);
         viewTheCartTotalPanel = new ViewTheCartTotalPanel(MainPanelContainer.this,
-                storeItems, allCustomers, accessCustomerPanel);
+                allCustomers, accessCustomerPanel);
     }
 
     //MODIFIES: this

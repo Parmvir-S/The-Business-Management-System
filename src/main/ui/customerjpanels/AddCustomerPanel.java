@@ -16,7 +16,6 @@ import java.util.Random;
 public class AddCustomerPanel extends JPanel {
 
     private MainPanelContainer container;
-    private ItemList storeItems;
     private AllCustomers allCustomers;
     private JLabel customerNameLabel;
     private JTextField customerNameTextField;
@@ -26,8 +25,7 @@ public class AddCustomerPanel extends JPanel {
     private JTextField customerPhoneNumberTextField;
 
     //EFFECTS: creates a new instance of the AddCustomerPanel class
-    public AddCustomerPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
-        this.storeItems = storeItems;
+    public AddCustomerPanel(MainPanelContainer container, AllCustomers allCustomers) {
         this.allCustomers = allCustomers;
         this.container = container;
         initialize();

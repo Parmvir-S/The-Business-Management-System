@@ -13,13 +13,9 @@ public class StoreMenu extends JPanel {
 
     private GridBagConstraints gbc = new GridBagConstraints();
     private MainPanelContainer container;
-    private ItemList storeItems;
-    private AllCustomers allCustomers;
 
     //EFFECTS: creates a new instance of the StoreMenu class
-    public StoreMenu(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
-        this.storeItems = storeItems;
-        this.allCustomers = allCustomers;
+    public StoreMenu(MainPanelContainer container) {
         this.container = container;
         initialize();
     }

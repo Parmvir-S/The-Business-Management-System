@@ -13,15 +13,13 @@ import java.awt.event.ActionListener;
 //This displays the panel that allows the user to access a specific customer
 public class AccessCustomerPanel extends JPanel {
     private MainPanelContainer container;
-    private ItemList storeItems;
     private AllCustomers allCustomers;
     private JLabel accessCustomerNameLabel;
     private JTextField accessCustomerNameTextField;
     private String userName;
 
     //EFFECTS: creates a new instance of the AccessCustomerPanel class
-    public AccessCustomerPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
-        this.storeItems = storeItems;
+    public AccessCustomerPanel(MainPanelContainer container, AllCustomers allCustomers) {
         this.allCustomers = allCustomers;
         this.container = container;
         initialize();

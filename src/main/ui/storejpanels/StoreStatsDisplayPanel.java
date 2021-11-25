@@ -13,14 +13,12 @@ import java.awt.event.ActionListener;
 public class StoreStatsDisplayPanel extends JPanel {
 
     private MainPanelContainer container;
-    private ItemList storeItems;
     private AllCustomers allCustomers;
     private JLabel totalCustomerLabel;
     private JLabel totalSalesLabel;
 
     //EFFECTS: creates a new instance of the StoreStatsDisplayPanel class
-    public StoreStatsDisplayPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
-        this.storeItems = storeItems;
+    public StoreStatsDisplayPanel(MainPanelContainer container, AllCustomers allCustomers) {
         this.allCustomers = allCustomers;
         this.container = container;
         initialize();

@@ -13,14 +13,12 @@ import java.awt.event.ActionListener;
 public class RemoveCustomerPanel extends JPanel {
 
     private MainPanelContainer container;
-    private ItemList storeItems;
     private AllCustomers allCustomers;
     private JLabel customerToRemoveNameLabel;
     private JTextField customerToRemoveNameTextField;
 
     //EFFECTS: creates a new instance of the RemoveCustomerPanel class
-    public RemoveCustomerPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
-        this.storeItems = storeItems;
+    public RemoveCustomerPanel(MainPanelContainer container, AllCustomers allCustomers) {
         this.allCustomers = allCustomers;
         this.container = container;
         initialize();

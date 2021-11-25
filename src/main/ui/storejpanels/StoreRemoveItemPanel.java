@@ -14,14 +14,12 @@ public class StoreRemoveItemPanel extends JPanel {
 
     private MainPanelContainer container;
     private ItemList storeItems;
-    private AllCustomers allCustomers;
     private JLabel itemToRemoveNameLabel;
     private JTextField itemToRemoveNameTextField;
 
     //EFFECTS: creates a new instance of the StoreRemoveItemPanel class
-    public StoreRemoveItemPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
+    public StoreRemoveItemPanel(MainPanelContainer container, ItemList storeItems) {
         this.storeItems = storeItems;
-        this.allCustomers = allCustomers;
         this.container = container;
         initialize();
     }

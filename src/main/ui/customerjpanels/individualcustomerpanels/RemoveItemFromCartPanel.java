@@ -13,17 +13,15 @@ import java.awt.event.ActionListener;
 //This class allows a user to remove an item from his/her cart
 public class RemoveItemFromCartPanel extends JPanel {
     private MainPanelContainer container;
-    private ItemList storeItems;
     private AllCustomers allCustomers;
     private AccessCustomerPanel accessCustomerPanel;
     private JLabel itemToRemoveLabel;
     private JTextField itemToRemoveTextField;
 
     //EFFECTS: creates a new instance of the RemoveItemFromCartPanel class
-    public RemoveItemFromCartPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers,
+    public RemoveItemFromCartPanel(MainPanelContainer container, AllCustomers allCustomers,
                                    AccessCustomerPanel accessCustomerPanel) {
         this.accessCustomerPanel = accessCustomerPanel;
-        this.storeItems = storeItems;
         this.allCustomers = allCustomers;
         this.container = container;
         initialize();

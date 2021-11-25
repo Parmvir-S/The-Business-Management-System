@@ -15,13 +15,11 @@ import java.util.ArrayList;
 public class StoreViewItemsPanel extends JPanel {
     private MainPanelContainer container;
     private ItemList storeItems;
-    private AllCustomers allCustomers;
     private JLabel allItems;
 
     //EFFECTS: creates new instance of the StoreViewItemsPanel class
-    public StoreViewItemsPanel(MainPanelContainer container, ItemList storeItems, AllCustomers allCustomers) {
+    public StoreViewItemsPanel(MainPanelContainer container, ItemList storeItems) {
         this.storeItems = storeItems;
-        this.allCustomers = allCustomers;
         this.container = container;
         initialize();
     }
