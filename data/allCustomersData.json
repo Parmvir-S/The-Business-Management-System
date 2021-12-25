@@ -1,28 +1,20 @@
-{"Customers": [{
-    "phoneNumber": 123,
-    "customerID": 833987599,
-    "name": "parm",
-    "email": "email@email.com",
-    "cart": [
-        {
+{"Customers": [
+    {
+        "phoneNumber": 123,
+        "customerID": 989447064,
+        "name": "parm",
+        "email": "email",
+        "cart": [{
             "price": 3,
             "name": "apple",
             "description": "fruit"
-        },
-        {
-            "price": 4,
-            "name": "orange",
-            "description": "fruit"
-        },
-        {
-            "price": 3,
-            "name": "apple",
-            "description": "fruit"
-        },
-        {
-            "price": 6,
-            "name": "dragon fruit",
-            "description": "fruit"
-        }
-    ]
-}]}
+        }]
+    },
+    {
+        "phoneNumber": 321,
+        "customerID": 1002914636,
+        "name": "name",
+        "email": "email321",
+        "cart": []
+    }
+]}

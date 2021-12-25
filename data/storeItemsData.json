@@ -5,13 +5,8 @@
         "description": "fruit"
     },
     {
-        "price": 4,
-        "name": "orange",
-        "description": "fruit"
-    },
-    {
         "price": 6,
-        "name": "dragon fruit",
+        "name": "mango",
         "description": "fruit"
     }
 ]}
